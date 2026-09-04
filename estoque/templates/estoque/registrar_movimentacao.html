@@ -1,0 +1,95 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Registrar Movimentação — GHControl{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">Registrar Movimentação</h2>
+    <p class="mt-1 text-slate-500">Registre entradas, saídas, consumos ou descartes de frascos</p>
+</div>
+
+<div class="mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+    <form method="post" class="space-y-6">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div>
+            <label for="{{ form.item_estoque.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                Frasco (Item de Estoque)
+            </label>
+            {{ form.item_estoque }}
+            {% if form.item_estoque.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ form.item_estoque.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.tipo.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                Tipo de Movimentação
+            </label>
+            {{ form.tipo }}
+            {% if form.tipo.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ form.tipo.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+                <label for="{{ form.quantidade.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                    Quantidade
+                </label>
+                {{ form.quantidade }}
+                {% if form.quantidade.errors %}
+                <p class="mt-1 text-sm text-red-600">{{ form.quantidade.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="{{ form.unidade.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                    Unidade
+                </label>
+                {{ form.unidade }}
+                {% if form.unidade.help_text %}
+                <p class="mt-1 text-xs text-slate-500">{{ form.unidade.help_text }}</p>
+                {% endif %}
+                {% if form.unidade.errors %}
+                <p class="mt-1 text-sm text-red-600">{{ form.unidade.errors.0 }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div>
+            <label for="{{ form.justificativa.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                Justificativa <span class="font-normal text-slate-400">(opcional)</span>
+            </label>
+            {{ form.justificativa }}
+            {% if form.justificativa.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ form.justificativa.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div class="rounded-lg bg-slate-50 px-4 py-3 text-sm text-slate-600">
+            <span class="font-medium text-slate-700">Usuário responsável:</span>
+            {{ user.get_username }} (preenchido automaticamente)
+        </div>
+
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+            <button type="submit"
+                    class="inline-flex flex-1 items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
+                Salvar Movimentação
+            </button>
+            <a href="{% url 'estoque:dashboard' %}"
+               class="inline-flex flex-1 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — GHControl</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="flex min-h-screen items-center justify-center bg-gradient-to-br from-brand-900 via-brand-700 to-slate-900 px-4 antialiased">
+    <div class="w-full max-w-md">
+        <!-- Cabeçalho -->
+        <div class="mb-8 text-center text-white">
+            <p class="text-xs font-semibold uppercase tracking-widest text-brand-50/70">SENAI</p>
+            <h1 class="mt-2 text-4xl font-bold">GHControl</h1>
+            <p class="mt-2 text-sm text-brand-50/80">Controle de Estoque e Segurança Química</p>
+        </div>
+
+        <!-- Card de login -->
+        <div class="rounded-2xl border border-white/10 bg-white/95 p-8 shadow-2xl backdrop-blur-sm">
+            <h2 class="mb-6 text-center text-lg font-semibold text-slate-800">Acesse sua conta</h2>
+
+            {% if form.non_field_errors %}
+            <div class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="post" class="space-y-5">
+                {% csrf_token %}
+
+                <div>
+                    <label for="{{ form.username.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                        Usuário
+                    </label>
+                    <input type="text"
+                           name="username"
+                           id="{{ form.username.id_for_label }}"
+                           value="{{ form.username.value|default:'' }}"
+                           autofocus
+                           required
+                           class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                           placeholder="Digite seu usuário">
+                    {% if form.username.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.username.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <label for="{{ form.password.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                        Senha
+                    </label>
+                    <input type="password"
+                           name="password"
+                           id="{{ form.password.id_for_label }}"
+                           required
+                           class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                           placeholder="Digite sua senha">
+                    {% if form.password.errors %}
+                    <p class="mt-1 text-sm text-red-600">{{ form.password.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <button type="submit"
+                        class="w-full rounded-xl bg-brand-600 px-4 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                    Entrar no Sistema
+                </button>
+            </form>
+        </div>
+
+        <p class="mt-6 text-center text-xs text-brand-50/60">
+            GHControl — Laboratório Químico SENAI
+        </p>
+    </div>
+</body>
+</html>

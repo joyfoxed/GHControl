@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GHControl{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="min-h-screen bg-slate-100 text-slate-800 antialiased">
+    <div class="flex min-h-screen">
+        <!-- Barra lateral -->
+        <aside class="hidden w-64 flex-shrink-0 bg-brand-900 text-white md:flex md:flex-col print:hidden">
+            <div class="border-b border-brand-700 px-6 py-6">
+                <p class="text-xs font-semibold uppercase tracking-widest text-brand-50/70">SENAI</p>
+                <h1 class="mt-1 text-2xl font-bold">GHControl</h1>
+                <p class="mt-1 text-sm text-brand-50/80">Estoque &amp; Segurança Química</p>
+            </div>
+
+            <nav class="flex-1 space-y-1 px-4 py-6">
+                <a href="{% url 'estoque:dashboard' %}"
+                   class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
+                          {% if request.resolver_match.url_name == 'dashboard' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
+                    <span class="text-lg">📊</span> Dashboard
+                </a>
+                <a href="{% url 'estoque:lista_estoque' %}"
+                   class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
+                          {% if request.resolver_match.url_name == 'lista_estoque' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
+                    <span class="text-lg">🧪</span> Estoque
+                </a>
+                <a href="{% url 'estoque:registrar_movimentacao' %}"
+                   class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
+                          {% if request.resolver_match.url_name == 'registrar_movimentacao' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
+                    <span class="text-lg">📝</span> Registrar Movimentação
+                </a>
+                <a href="{% url 'estoque:relatorio_inventario' %}"
+                   class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
+                          {% if request.resolver_match.url_name == 'relatorio_inventario' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
+                    <span class="text-lg">📋</span> Relatório de Inventário
+                </a>
+            </nav>
+
+            {% if user.is_authenticated %}
+            <div class="border-t border-brand-700 px-6 py-4 text-sm text-brand-50/80">
+                <p class="font-medium text-white">{{ user.get_username }}</p>
+                <form method="post" action="{% url 'estoque:logout' %}" class="mt-1">
+                    {% csrf_token %}
+                    <button type="submit" class="text-brand-50/70 hover:text-white">Sair</button>
+                </form>
+            </div>
+            {% endif %}
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <div class="flex flex-1 flex-col">
+            <!-- Barra superior com busca rápida (desktop) -->
+            <header class="hidden border-b border-slate-200 bg-white px-8 py-4 shadow-sm md:block print:hidden">
+                <form action="{% url 'estoque:busca_codigo_barras' %}" method="get" class="mx-auto flex max-w-2xl items-center gap-3">
+                    <span class="text-xl text-slate-400" aria-hidden="true">📷</span>
+                    <input type="text"
+                           name="codigo"
+                           placeholder="Bipe ou digite o Código de Barras..."
+                           autocomplete="off"
+                           class="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 shadow-sm placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-200">
+                    <button type="submit"
+                            class="rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
+                        Buscar
+                    </button>
+                </form>
+            </header>
+
+            <!-- Cabeçalho mobile -->
+            <header class="border-b border-slate-200 bg-white px-4 py-4 shadow-sm md:hidden print:hidden">
+                <h1 class="text-lg font-bold text-brand-900">GHControl</h1>
+                <form action="{% url 'estoque:busca_codigo_barras' %}" method="get" class="mt-3 flex items-center gap-2">
+                    <input type="text"
+                           name="codigo"
+                           placeholder="Bipe ou digite o Código de Barras..."
+                           autocomplete="off"
+                           class="w-full rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200">
+                    <button type="submit" class="rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white">🔍</button>
+                </form>
+                <nav class="mt-3 flex gap-2 overflow-x-auto text-sm">
+                    <a href="{% url 'estoque:dashboard' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Dashboard</a>
+                    <a href="{% url 'estoque:lista_estoque' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Estoque</a>
+                    <a href="{% url 'estoque:registrar_movimentacao' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Movimentação</a>
+                    <a href="{% url 'estoque:relatorio_inventario' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Relatório</a>
+                </nav>
+            </header>
+
+            <main class="flex-1 px-4 py-6 md:px-8 md:py-8">
+                {% if messages %}
+                <div class="mb-6 space-y-2 print:hidden">
+                    {% for message in messages %}
+                    <div class="rounded-lg border px-4 py-3 text-sm
+                        {% if message.tags == 'success' %}border-emerald-200 bg-emerald-50 text-emerald-800
+                        {% elif message.tags == 'error' %}border-red-200 bg-red-50 text-red-800
+                        {% else %}border-slate-200 bg-white text-slate-700{% endif %}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

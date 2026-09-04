@@ -1,0 +1,101 @@
+{% extends 'estoque/base.html' %}
+{% load static %}
+
+{% block title %}{{ item.reagente.nome }} — GHControl{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+    <a href="{% url 'estoque:lista_estoque' %}"
+       class="inline-flex items-center gap-1 text-sm font-medium text-brand-700 hover:text-brand-900">
+        ← Voltar ao estoque
+    </a>
+</div>
+
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <!-- Cabeçalho -->
+    <div class="border-b border-slate-100 bg-gradient-to-r from-brand-900 to-brand-700 px-6 py-8 text-white md:px-10">
+        <p class="text-sm font-medium text-brand-100">Ficha do Frasco</p>
+        <h2 class="mt-1 text-3xl font-bold">{{ item.reagente.nome }}</h2>
+        <div class="mt-4 flex flex-wrap gap-4 text-sm text-brand-50">
+            <span><strong class="text-white">CAS:</strong> {{ item.reagente.cas }}</span>
+            <span><strong class="text-white">Fornecedor:</strong> {{ item.fornecedor }}</span>
+            {% if item.codigo_barras %}
+            <span><strong class="text-white">Cód. Barras:</strong> {{ item.codigo_barras }}</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="grid gap-8 p-6 md:grid-cols-2 md:p-10">
+        <!-- Dados do frasco -->
+        <div>
+            <h3 class="mb-4 text-lg font-semibold text-slate-900">Informações do Frasco</h3>
+            <dl class="space-y-4">
+                <div class="flex justify-between border-b border-slate-100 pb-3">
+                    <dt class="text-sm text-slate-500">Lote</dt>
+                    <dd class="text-sm font-semibold text-slate-900">{{ item.lote }}</dd>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-3">
+                    <dt class="text-sm text-slate-500">Validade</dt>
+                    <dd class="text-sm font-semibold text-slate-900">{{ item.validade|date:"d/m/Y" }}</dd>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-3">
+                    <dt class="text-sm text-slate-500">Quantidade Atual</dt>
+                    <dd class="text-sm font-bold text-brand-700">{{ item.quantidade }} {{ item.qtd_unidade }}</dd>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-3">
+                    <dt class="text-sm text-slate-500">Concentração</dt>
+                    <dd class="text-sm font-semibold text-slate-900">{{ item.concentracao }} {{ item.conc_unidade }}</dd>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-3">
+                    <dt class="text-sm text-slate-500">Armário</dt>
+                    <dd class="text-sm font-semibold text-slate-900">Armário {{ item.armario.posicao }}</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- Pictogramas GHS -->
+        <div>
+            <h3 class="mb-4 text-lg font-semibold text-slate-900">Classificações GHS</h3>
+            <div class="flex flex-wrap gap-4">
+                {% for ghs in item.reagente.classificacoes_ghs.all %}
+                <div class="flex flex-col items-center rounded-xl border border-slate-200 bg-slate-50 p-4 text-center">
+                    <img src="{% static ghs.picto %}"
+                         alt="{{ ghs.nome }}"
+                         title="{{ ghs.nome }}"
+                         class="h-20 w-20 object-contain"
+                         onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+                    <span class="hidden flex h-20 w-20 items-center justify-center rounded-lg border-2 border-dashed border-orange-300 bg-orange-50 text-xs font-bold text-orange-700">
+                        GHS
+                    </span>
+                    <p class="mt-2 max-w-[120px] text-xs font-medium text-slate-700">{{ ghs.nome }}</p>
+                </div>
+                {% empty %}
+                <p class="text-sm italic text-slate-400">Nenhuma classificação GHS cadastrada.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Ações -->
+    <div class="flex flex-col gap-3 border-t border-slate-100 bg-slate-50 px-6 py-6 md:flex-row md:px-10">
+        {% if item.reagente.fds_url %}
+        <a href="{{ item.reagente.fds_url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
+            📄 Visualizar FDS/FISPQ
+        </a>
+        {% else %}
+        <span class="inline-flex flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-100 px-6 py-3 text-sm font-medium text-slate-400"
+              title="Cadastre o link da FDS no painel admin (Reagente)">
+            📄 FDS/FISPQ indisponível
+        </span>
+        {% endif %}
+
+        <a href="{% url 'estoque:registrar_movimentacao' %}?item={{ item.pk }}&tipo=Consumo"
+           class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
+            ⚡ Registrar Consumo deste Frasco
+        </a>
+    </div>
+</div>
+{% endblock %}

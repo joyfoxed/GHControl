@@ -1,0 +1,106 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Relatório de Inventário — GHControl{% endblock %}
+
+{% block extra_head %}
+<style>
+    @media print {
+        @page { margin: 1.5cm; }
+        body { background: white !important; }
+        main { padding: 0 !important; }
+        .relatorio-container { box-shadow: none !important; border: none !important; }
+        thead { display: table-header-group; }
+        tr { page-break-inside: avoid; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between print:hidden">
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900">Relatório de Inventário</h2>
+        <p class="mt-1 text-slate-500">Auditoria formal do estoque químico</p>
+    </div>
+    <div class="flex gap-3">
+        <button type="button"
+                onclick="window.print()"
+                class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
+            🖨️ Imprimir / Salvar como PDF
+        </button>
+        <a href="{% url 'estoque:dashboard' %}"
+           class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
+            Voltar
+        </a>
+    </div>
+</div>
+
+<div class="relatorio-container overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <!-- Cabeçalho formal -->
+    <div class="border-b border-slate-200 px-8 py-8">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+            <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-brand-700">SENAI — GHControl</p>
+                <h1 class="mt-2 text-2xl font-bold text-slate-900">Relatório de Inventário Químico</h1>
+                <p class="mt-1 text-sm text-slate-600">Controle de Estoque e Segurança Química</p>
+            </div>
+            <div class="text-sm text-slate-600 sm:text-right">
+                <p><strong>Emissão:</strong> {{ data_emissao|date:"d/m/Y H:i" }}</p>
+                <p><strong>Responsável:</strong> {{ user.get_username }}</p>
+                <p><strong>Total de frascos:</strong> {{ total_itens }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabela de auditoria -->
+    <div class="overflow-x-auto px-8 py-6">
+        <table class="min-w-full border-collapse text-sm">
+            <thead>
+                <tr class="border-b-2 border-slate-800 bg-slate-50">
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">#</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Reagente</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Lote</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Validade</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Armário</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Quantidade</th>
+                    <th class="px-4 py-3 text-left font-bold uppercase tracking-wider text-slate-700">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in itens_auditoria %}
+                {% with item=registro.item %}
+                <tr class="border-b border-slate-200 {% cycle 'bg-white' 'bg-slate-50' %}">
+                    <td class="px-4 py-3 text-slate-500">{{ forloop.counter }}</td>
+                    <td class="px-4 py-3 font-medium text-slate-900">{{ item.reagente.nome }}</td>
+                    <td class="px-4 py-3 text-slate-700">{{ item.lote }}</td>
+                    <td class="px-4 py-3 text-slate-700">{{ item.validade|date:"d/m/Y" }}</td>
+                    <td class="px-4 py-3 text-slate-700">Armário {{ item.armario.posicao }}</td>
+                    <td class="px-4 py-3 font-semibold text-slate-900">{{ item.quantidade }} {{ item.qtd_unidade }}</td>
+                    <td class="px-4 py-3">
+                        {% if registro.status_cor == 'red' %}
+                        <span class="font-medium text-red-700">{{ registro.status }}</span>
+                        {% elif registro.status_cor == 'amber' %}
+                        <span class="font-medium text-amber-700">{{ registro.status }}</span>
+                        {% else %}
+                        <span class="font-medium text-emerald-700">{{ registro.status }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endwith %}
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="px-4 py-10 text-center text-slate-400">
+                        Nenhum item registrado no estoque.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="border-t border-slate-200 px-8 py-6 text-xs text-slate-500">
+        <p>Este documento foi gerado automaticamente pelo sistema GHControl para fins de auditoria e rastreabilidade.</p>
+        <p class="mt-1">Assinatura do responsável: _____________________________________________ Data: ___/___/______</p>
+    </div>
+</div>
+{% endblock %}
