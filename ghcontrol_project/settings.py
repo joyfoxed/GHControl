@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,11 +76,14 @@ WSGI_APPLICATION = 'ghcontrol_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# O link POOLED da Neon (removi o channel_binding para evitar conflitos no Django)
+URL_BANCO_NEON = "postgresql://ghcontrol_owner:npg_G9Efryocmg3w@ep-patient-flower-aclyp9sg-pooler.sa-east-1.aws.neon.tech/ghcontrol?sslmode=require"
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=URL_BANCO_NEON,
+        conn_max_age=600
+    )
 }
 
 
