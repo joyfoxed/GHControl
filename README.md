@@ -30,5 +30,5 @@ O projeto foi construído focado em segurança, escalabilidade e operação *Ser
 *   **Banco de Dados (Produção):** PostgreSQL hospedado na **Neon DB**
 *   **Hospedagem/Deploy:** Plataforma **Vercel** (Serverless) com suporte a arquivos estáticos via `whitenoise`.
 
-🎓 Sobre o Projeto
+## 🎓 Sobre o Projeto
 Este projeto foi desenvolvido com foco estrito em resolver um problema real de gestão laboratorial: a perda de rastreabilidade de frascos e o risco iminente de reações perigosas por armazenamento inadequado. O GHControl atua como uma barreira de segurança sistêmica, protegendo tanto a integridade física do laboratório quanto o orçamento da instituição.
