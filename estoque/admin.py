@@ -8,6 +8,7 @@ para facilitar o gerenciamento visual dos dados.
 from django.contrib import admin
 
 from .models import Armario, GHS, HistoricoMovimentacao, ItemEstoque, Reagente
+from .permissions import usuario_pode_movimentar_estoque
 
 
 @admin.register(GHS)
@@ -92,3 +93,12 @@ class HistoricoMovimentacaoAdmin(admin.ModelAdmin):
     readonly_fields = ('data_hora',)
     autocomplete_fields = ('item_estoque', 'usuario')
     date_hierarchy = 'data_hora'
+
+    def has_add_permission(self, request):
+        return usuario_pode_movimentar_estoque(request.user)
+
+    def has_change_permission(self, request, obj=None):
+        return usuario_pode_movimentar_estoque(request.user)
+
+    def has_delete_permission(self, request, obj=None):
+        return usuario_pode_movimentar_estoque(request.user)

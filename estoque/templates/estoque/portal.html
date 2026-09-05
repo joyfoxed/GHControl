@@ -60,7 +60,11 @@
                 </span>
                 <h3 class="text-lg font-bold text-slate-900">Painel de Dashboard</h3>
                 <p class="mt-2 text-center text-sm text-slate-500">
+                    {% if pode_movimentar_estoque %}
                     Consulte estoque, alertas de validade e registre movimentações
+                    {% else %}
+                    Consulte estoque e alertas de validade (modo somente leitura)
+                    {% endif %}
                 </p>
                 <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
                     Acessar →

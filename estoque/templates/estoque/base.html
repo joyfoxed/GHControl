@@ -46,11 +46,13 @@
                           {% if request.resolver_match.url_name == 'lista_estoque' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
                     <span class="text-lg">🧪</span> Estoque
                 </a>
+                {% if pode_movimentar_estoque %}
                 <a href="{% url 'estoque:registrar_movimentacao' %}"
                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
                           {% if request.resolver_match.url_name == 'registrar_movimentacao' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
                     <span class="text-lg">📝</span> Registrar Movimentação
                 </a>
+                {% endif %}
                 <a href="{% url 'estoque:relatorio_inventario' %}"
                    class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition
                           {% if request.resolver_match.url_name == 'relatorio_inventario' %}bg-brand-700 text-white{% else %}text-brand-50/90 hover:bg-brand-700/60{% endif %}">
@@ -101,7 +103,9 @@
                 <nav class="mt-3 flex gap-2 overflow-x-auto text-sm">
                     <a href="{% url 'estoque:dashboard' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Dashboard</a>
                     <a href="{% url 'estoque:lista_estoque' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Estoque</a>
+                    {% if pode_movimentar_estoque %}
                     <a href="{% url 'estoque:registrar_movimentacao' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Movimentação</a>
+                    {% endif %}
                     <a href="{% url 'estoque:relatorio_inventario' %}" class="rounded-full bg-brand-50 px-3 py-1 text-brand-700">Relatório</a>
                 </nav>
             </header>

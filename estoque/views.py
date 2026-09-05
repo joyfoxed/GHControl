@@ -12,6 +12,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
+from .decorators import requer_permissao_movimentacao
 from .forms import MovimentacaoForm
 from .models import HistoricoMovimentacao, ItemEstoque, Reagente
 
@@ -182,6 +183,7 @@ def busca_codigo_barras(request):
 
 
 @login_required
+@requer_permissao_movimentacao
 def registrar_movimentacao(request):
     """Formulário para registrar entradas, saídas, consumos e descartes."""
     item_id = request.GET.get('item')

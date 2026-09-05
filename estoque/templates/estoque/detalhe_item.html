@@ -92,10 +92,12 @@
         </span>
         {% endif %}
 
+        {% if pode_movimentar_estoque %}
         <a href="{% url 'estoque:registrar_movimentacao' %}?item={{ item.pk }}&tipo=Consumo"
            class="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
             ⚡ Registrar Consumo deste Frasco
         </a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

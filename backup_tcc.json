@@ -1,0 +1,2790 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2026-06-13T15:53:28.456Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "Comburente",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2026-06-13T15:53:32.016Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "Comburente",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2026-06-13T16:20:15.536Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "teste (CAS: 1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2026-06-13T16:25:49.443Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "teste (CAS: 123)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"CAS\", \"Classifica\\u00e7\\u00f5es GHS\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2026-06-13T18:58:51.447Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "teste (CAS: 123)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2026-06-14T19:24:35.672Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "teste (CAS: 123)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2026-06-14T19:25:17.454Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "Armßrio 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2026-06-14T19:25:20.899Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "Armßrio 2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2026-06-14T19:25:22.652Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "Armßrio 3",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2026-06-14T19:25:23.864Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "Armßrio 4",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2026-06-14T19:26:29.647Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "teste ù Lote 123 (100 g)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2026-06-14T19:27:16.497Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Entrada ù teste (50) em 14/06/2026 19:27",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2026-06-14T19:31:01.815Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "teste reagente (CAS: 123)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nome\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2026-07-08T23:43:35.389Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "┴lcool EtÝlico (CAS: 64-17-5)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2026-07-08T23:44:01.403Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "4",
+        "object_repr": "┴gua Oxigenada Concentrada (CAS: 7722-84-1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2026-07-08T23:45:10.938Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "┴lcool EtÝlico ù Lote 1 (1 L)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2026-07-08T23:45:53.229Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "┴gua Oxigenada Concentrada ù Lote 12 (1 L)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2026-07-08T23:46:14.787Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "teste reagente (CAS: 123)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Classifica\\u00e7\\u00f5es GHS\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2026-07-09T00:21:53.855Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "┴lcool EtÝlico (CAS: 64-17-5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2026-07-09T00:28:33.598Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Valeria",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2026-07-09T00:28:46.318Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Mateus",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2026-07-09T00:28:57.247Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "Adriano",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2026-07-09T00:32:47.886Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "Adriano",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2026-07-09T00:33:10.418Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Mateus",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2026-07-09T00:33:14.272Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Valeria",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2026-07-09T00:41:07.934Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "┴gua Oxigenada Concentrada ù Lote 12 (1.00 L)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"C\\u00f3digo de barras\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2026-07-09T00:41:12.772Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "┴lcool EtÝlico ù Lote 1 (4.50 L)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"C\\u00f3digo de barras\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2026-07-09T23:20:53.542Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "5",
+        "object_repr": "Tecnico1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2026-07-09T23:33:36.256Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "5",
+        "object_repr": "┴cido Sulf·rico ù Lote H2SO4-TCC-001 (500.00 mL)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2026-07-09T23:33:36.256Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "4",
+        "object_repr": "┴lcool EtÝlico ù Lote ETOH-TCC-001 (1.00 L)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2026-07-09T23:33:55.115Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "6",
+        "object_repr": "Acetona ù Lote ACE-TCC-001 (2.00 L)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2026-07-09T23:33:59.734Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Armßrio 901",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2026-07-09T23:33:59.734Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "6",
+        "object_repr": "Armßrio 902",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2026-07-10T00:06:03.751Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Mateus",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Last login\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2026-07-10T00:17:59.477Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "5",
+        "object_repr": "Tecnico1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2026-07-10T00:19:46.133Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "7",
+        "object_repr": "anne",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2026-07-10T00:19:51.236Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "7",
+        "object_repr": "anne",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2026-07-10T00:31:18.113Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "teste reagente ù Lote 123 (100.00 g)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2026-07-10T00:31:18.113Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "┴gua Oxigenada Concentrada ù Lote 12 (1.00 L)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2026-07-10T00:31:18.114Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "┴lcool EtÝlico ù Lote 1 (4.50 L)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2026-07-10T00:31:23.216Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "6",
+        "object_repr": "Acetona (CAS: 67-64-1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2026-07-10T00:31:23.216Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "teste reagente (CAS: 123)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2026-07-10T00:31:23.216Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "5",
+        "object_repr": "┴cido Sulf·rico (CAS: 7664-93-9)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2026-07-10T00:31:23.216Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "4",
+        "object_repr": "┴gua Oxigenada Concentrada (CAS: 7722-84-1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2026-07-10T00:31:23.216Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "┴lcool EtÝlico (CAS: 64-17-5)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2026-07-10T01:05:12.534Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "7",
+        "object_repr": "Anne",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2026-07-10T01:05:26.782Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "6",
+        "object_repr": "Tecnico",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2026-07-10T01:05:53.086Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "8",
+        "object_repr": "Professor",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2026-07-10T01:06:08.251Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "8",
+        "object_repr": "Professor",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Staff status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2026-07-10T01:28:24.743Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Valeria",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2026-07-10T01:28:31.949Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "Adriano",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2026-07-10T01:28:36.421Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Mateus",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2026-07-10T01:28:53.477Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "8",
+        "object_repr": "Professor",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Superuser status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2026-07-10T01:31:20.388Z",
+        "user": 8,
+        "content_type": 9,
+        "object_id": "20",
+        "object_repr": "Carbonato de S¾dio ù Lote NA2CO3-2025 (950.00 g)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Arm\\u00e1rio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2026-07-10T01:31:36.343Z",
+        "user": 8,
+        "content_type": 9,
+        "object_id": "20",
+        "object_repr": "Carbonato de S¾dio ù Lote NA2CO3-2025 (950.00 g)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Arm\\u00e1rio\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2026-07-10T01:38:45.622Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "8",
+        "object_repr": "Acetona (CAS: 67-64-1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2026-07-10T15:24:16.276Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "5",
+        "object_repr": "Tecnico1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2026-07-10T16:34:22.197Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "25",
+        "object_repr": "┴cido Sulf·rico (CAS: 7664-93-9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2026-07-10T16:40:34.808Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "26",
+        "object_repr": "Hidr¾xido de s¾dio (CAS: 1310732)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2026-07-10T16:46:18.937Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "27",
+        "object_repr": "Hidr¾xido de potßssio (CAS: 1310583)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2026-07-10T16:52:36.374Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "28",
+        "object_repr": "┴cido clorÝdrico (CAS: 7647010)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2026-07-10T16:56:16.682Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "29",
+        "object_repr": "┴cido nÝtrico (CAS: 7697-37-2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2026-07-10T17:04:19.545Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "30",
+        "object_repr": "Nitrato de prata (CAS: 7761-88-8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2026-07-10T17:07:45.337Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "27",
+        "object_repr": "Hidr¾xido de potßssio (CAS: 1310583)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2026-07-10T17:08:27.504Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "16",
+        "object_repr": "Hidr¾xido de Potßssio (CAS: 1310-58-3)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2026-07-10T17:09:21.677Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "12",
+        "object_repr": "┴cido ClorÝdrico (CAS: 7647-01-0)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2026-07-10T17:09:45.758Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "28",
+        "object_repr": "┴cido clorÝdrico (CAS: 7647010)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2026-07-10T17:10:14.523Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "12",
+        "object_repr": "┴cido ClorÝdrico (CAS: 7647-01-0)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Classifica\\u00e7\\u00f5es GHS\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2026-07-10T17:12:10.654Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "25",
+        "object_repr": "┴cido Sulf·rico (CAS: 7664-93-9)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2026-07-10T17:12:19.881Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "11",
+        "object_repr": "┴cido Sulf·rico (CAS: 7664-93-9)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2026-07-10T17:13:25.451Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "15",
+        "object_repr": "Hidr¾xido de S¾dio (CAS: 1310-73-2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2026-07-10T17:13:36.989Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "26",
+        "object_repr": "Hidr¾xido de s¾dio (CAS: 1310732)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2026-07-10T17:14:59.108Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "31",
+        "object_repr": "┴cido Orto-fosf¾rico (CAS: 7664-38-2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2026-07-10T17:15:37.209Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "29",
+        "object_repr": "┴cido NÝtrico (CAS: 7697-37-2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nome\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2026-07-10T17:17:52.212Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "32",
+        "object_repr": "Dicromato de Potßssio (CAS: 7778-50-9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2026-07-10T17:21:27.025Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "33",
+        "object_repr": "┴cido SalicÝlico (CAS: 69-72-7)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2026-07-10T17:23:30.184Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "34",
+        "object_repr": "Bicarbonato de S¾dio (CAS: 144-55-8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2026-07-10T17:26:37.066Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "35",
+        "object_repr": "Sacarose (CAS: 57-50-1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2026-07-10T17:29:24.419Z",
+        "user": 2,
+        "content_type": 10,
+        "object_id": "31",
+        "object_repr": "┴cido orto-Fosf¾rico (CAS: 7664-38-2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Nome\", \"Classifica\\u00e7\\u00f5es GHS\", \"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2026-07-10T17:34:33.645Z",
+        "user": 2,
+        "content_type": 9,
+        "object_id": "27",
+        "object_repr": "┴cido Sulf·rico ù Lote 1903061140 (1000 mL)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2026-07-10T19:27:17.335Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "22",
+        "object_repr": "FenolftaleÝna (CAS: 77-09-8)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2026-07-10T19:27:33.869Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "18",
+        "object_repr": "Carbonato de S¾dio (CAS: 497-19-8)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2026-07-10T19:27:48.628Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "20",
+        "object_repr": "Cloreto de S¾dio (CAS: 7647-14-5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2026-07-10T19:28:07.321Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "10",
+        "object_repr": "Hexano (CAS: 110-54-3)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2026-07-10T19:28:27.330Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "17",
+        "object_repr": "Hidr¾xido de Am¶nio (CAS: 1336-21-6)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2026-07-10T19:28:47.527Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "9",
+        "object_repr": "Metanol (CAS: 67-56-1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2026-07-10T19:29:02.328Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "19",
+        "object_repr": "Permanganato de Potßssio (CAS: 7722-64-7)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2026-07-10T19:32:04.471Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "21",
+        "object_repr": "Sulfato de Cobre (II) pentahidratado (CAS: 7758-99-8)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2026-07-10T19:32:31.337Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "24",
+        "object_repr": "Per¾xido de HidrogÛnio (CAS: 7722-84-1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2026-07-10T19:32:49.032Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "14",
+        "object_repr": "┴cido AcÚtico (CAS: 64-19-7)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2026-07-10T19:33:03.509Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "23",
+        "object_repr": "Nitrato de Prata (CAS: 7761-88-8)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2026-07-10T19:33:20.872Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "13",
+        "object_repr": "┴cido NÝtrico (CAS: 7697-37-2)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2026-07-10T19:34:28.691Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "7",
+        "object_repr": "┴lcool EtÝlico (CAS: 64-17-5)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Link da FDS/FISPQ\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2026-07-10T20:22:39.981Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "8",
+        "object_repr": "Professor",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2026-07-10T21:11:42.498Z",
+        "user": 3,
+        "content_type": 9,
+        "object_id": "28",
+        "object_repr": "┴cido orto-Fosf¾rico ù Lote 43529 (980 ml)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2026-07-10T21:12:58.887Z",
+        "user": 3,
+        "content_type": 9,
+        "object_id": "29",
+        "object_repr": "Bicarbonato de S¾dio ù Lote 210713933 (1000 g)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2026-07-10T21:14:09.562Z",
+        "user": 3,
+        "content_type": 9,
+        "object_id": "30",
+        "object_repr": "Sacarose ù Lote 162405 (500 g)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2026-07-10T21:15:28.236Z",
+        "user": 3,
+        "content_type": 9,
+        "object_id": "31",
+        "object_repr": "Dicromato de Potßssio ù Lote 1107902 (1000 g)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2026-07-10T23:26:32.012Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "5",
+        "object_repr": "Tecnico1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$JC9b3nEO2IKZ7skVQGST4y$GZha7A6TlyZuDEGxws7QpbjLxOVryUpdpnWjRc6mA0I=",
+        "last_login": "2026-08-21T23:08:09.073Z",
+        "is_superuser": true,
+        "username": "joesley",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-06-13T15:13:44.776Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$Xd9dTEjjpLpoQxJzoRbET0$W8RIfPu1dxgW0H89jdXk6qRF50n5/cQI4q04XW9S3fw=",
+        "last_login": "2026-08-21T22:24:51.972Z",
+        "is_superuser": true,
+        "username": "Valeria",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-09T00:28:33Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$kq3NtZLlQN1LUIxZffz1f5$MiTFnlSHGPKpVdyrS0ykHBVll1mqgBHswKNbPWf9iXU=",
+        "last_login": "2026-07-10T23:02:38.150Z",
+        "is_superuser": true,
+        "username": "Mateus",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-09T00:28:45Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$ttAuYtOPfDWIQ4N5LqIRNO$izGHVGI9n/6LXgRH39p5mAEoqy+3fAs+VzqfHH7r/Fc=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "Adriano",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-09T00:28:56Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$8lzUGyMAYisaU1kS0VL2Xs$rXMPLgcN+nB0/FVLnybyuVgfSujXwGObuC2YFEv5T+w=",
+        "last_login": "2026-07-10T23:26:49.778Z",
+        "is_superuser": false,
+        "username": "Tecnico1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-09T23:20:52Z",
+        "groups": [],
+        "user_permissions": [
+            1,
+            2,
+            3,
+            4,
+            9,
+            10,
+            11,
+            12,
+            5,
+            6,
+            7,
+            8,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            41,
+            42,
+            43,
+            44,
+            37,
+            38,
+            39,
+            40,
+            33,
+            34,
+            35,
+            36,
+            21,
+            22,
+            23,
+            24
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$rDcJpaO18JSfluiHMk49jX$ZH5p2W76c6nanIO1WLyc7L8CajOUtcvmB9SylGJnlJk=",
+        "last_login": "2026-07-11T00:24:29.768Z",
+        "is_superuser": false,
+        "username": "Tecnico",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-09T23:30:36Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$niIXnQvNeQJewhWAQYkrid$Hdak2sSqPAtEHtl47CHdBJwAC/t7ErG6uINEmFmEjSo=",
+        "last_login": "2026-07-10T00:21:02Z",
+        "is_superuser": false,
+        "username": "Anne",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-10T00:19:45Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$xbskuNGE92ovS6AGVTA4zJ$StCHB63RMRlw+gG+wQgZZOL4Og58YEnztX2t+YAvE4A=",
+        "last_login": "2026-07-10T01:27:30Z",
+        "is_superuser": true,
+        "username": "Professor",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-10T01:05:52Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "tecnico_quimica",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-07-10T01:19:50.245Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "101tdsp35c0v1bo25wa77648ksttidbb",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wYQ3t:2BPP4QJuua1cyoybWEntSbdDjfrm8WV9yBRiRGoCnxQ",
+        "expire_date": "2026-06-27T15:14:17.251Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "155kzcey7xu6pelygzdfthphwaqyodsq",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wxWg3:4WRVFY_PiZZvIZv6-z4FpOJzOO8nZUMdA5lLDBWBvjw",
+        "expire_date": "2026-09-04T21:21:27.734Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "2l99dm531owdr2likph5nq9n6vdleq8e",
+    "fields": {
+        "session_data": ".eJxVjMsKwjAQAP9lzxKyW5pHj979hrDJpqYqCTTtSfx3KfSg15lh3hB430rYe17DIjABweWXRU7PXA8hD673plKr27pEdSTqtF3dmuTX9Wz_BoV7gQkGE2X2A2d2ka0RIs1CSQbvvSbEOKPWORE6G2XkURM550xGy6iRPHy-7iU3Vw:1wiD0T:r88F0ijCdE5LdvnZXogCRWG2loB-EKkBkhBzNzioZuE",
+        "expire_date": "2026-07-24T15:19:13.897Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "4nox8bnej9h4kn2e1nz6nu7xr9qrf2c9",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wiD5x:Y9QPhXVg4gCcuqnVWZduNg05n-A4nyAwESAZ5cX0iXE",
+        "expire_date": "2026-07-24T15:24:53.737Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "8kdxq93pjibvrxk7tjanj8z0fi65dnb2",
+    "fields": {
+        "session_data": ".eJxVjLsKwzAMAP9FczGxjSI7Y_d-Q5BluUlbbMhjKv33EsjQrnfHvWHkfZvGfdVlnDMMEODyyxLLU-sh8oPrvRlpdVvmZI7EnHY1t5b1dT3bv8HE6wQDREZM3lvXe3U9FfTU-dJ5GwkxiovRIgXFkoMmJZtRXGeZSV0RCgKfL7IfNys:1whzhE:HMwid5NWLvlC-S4dyAfNukGldSEZTbO6ZBum3frsmnQ",
+        "expire_date": "2026-07-24T01:06:28.107Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "8zva9uek1tkxoj4ydrddalof3swlchts",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1whcLw:3yOdcddibAkvjgrOlWhGyCKjXFW-ESHmHMJO7umo64A",
+        "expire_date": "2026-07-23T00:10:56.352Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "e8j2ruate0wxxst621wpfbm52sl4fcxe",
+    "fields": {
+        "session_data": ".eJxVjDEOgzAMAP_iuYoch4TA2L1viBzjFNoKJAJT1b9XSAztene6NyTetzHtVdc0DdCDg8svyyxPnQ8xPHi-L0aWeVunbI7EnLaa2zLo63q2f4OR6wg9NFhIrNcuCiGpz74wInGDkayWbLGNHDoSycRWfHFdCFadt1lcqwSfL9UGN4E:1wiKEw:PqTU_ddivd8CgsVfz5SE1NHQ2N-vd5rnaFB4Y975fzc",
+        "expire_date": "2026-07-24T23:02:38.155Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "gilp3ad9a5tz7lz60ayf49mdg4j07ta1",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wi06e:sADbKJQxI7ZRUdR8vpCjKruE_wd5-oALv85AI8qwSfw",
+        "expire_date": "2026-07-24T01:32:44.180Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "h5wzrekdjvnkuaibhox186gr6mjaf9cj",
+    "fields": {
+        "session_data": ".eJxVjDEKwzAMAP-iuRg3DracsXvfYCRLrtOWBOJkCv17CWRo17vjdki0rTVtTZc0Cgzg4fLLmPJLp0PIk6bHbPI8rcvI5kjMaZu5z6Lv29n-DSq1CgMghRyDlEDU2UAs14zSMxNm7Vi5z7aoIipFb70WdE4chi7aokjFwecLJig5ZQ:1wiLW9:RY8joJu9ThDH21hfsM47EJZCx60I0xSFcSHVOQc5q-c",
+        "expire_date": "2026-07-25T00:24:29.773Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "jm5bhx245iyt2r3ro56d3f4aqcdils9e",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wiHk7:DyBGU8yNDWKzDOgGnrCOidnLcR9iFMjVi7wnmnKcz8M",
+        "expire_date": "2026-07-24T20:22:39.998Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "k3k1hia55zjjjfayrpx7ec8v5brqmo1o",
+    "fields": {
+        "session_data": ".eJxVjDsOwyAQBe9CHSGzYD4p0_sMaGHXwUmEJWNXUe4eIblI2jcz7y0iHnuJR-MtLiSuwonL75YwP7l2QA-s91Xmte7bkmRX5EmbnFbi1-10_w4KttJrVKADsdFsUWtCdMSzhYENGDNAntMIozUhEKMKBB5dNh69zxozK_H5Avd5OF8:1whyzG:WnDZzaPnYZXGwu81bQZJDc3kV4vXuPdcrAHY0bDhEBU",
+        "expire_date": "2026-07-24T00:21:02.753Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "kk027hnjwr8tihrgc8mxudnyn2bf17gu",
+    "fields": {
+        "session_data": ".eJxVjMsKwjAQAP9lzxKyW5pHj979hrDJpqYqCTTtSfx3KfSg15lh3hB430rYe17DIjABweWXRU7PXA8hD673plKr27pEdSTqtF3dmuTX9Wz_BoV7gQkGE2X2A2d2ka0RIs1CSQbvvSbEOKPWORE6G2XkURM550xGy6iRPHy-7iU3Vw:1wxXfP:nEXJE-zpEHn1YGDWQL-v0d5l0VQbvPO2hNRkwHZ2EAw",
+        "expire_date": "2026-09-04T22:24:51.979Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "lkftg3apexgyy1qgj8menza0cn3mycum",
+    "fields": {
+        "session_data": ".eJxVjDEKwzAMAP-iuRg3DracsXvfYCRLrtOWBOJkCv17CWRo17vjdki0rTVtTZc0Cgzg4fLLmPJLp0PIk6bHbPI8rcvI5kjMaZu5z6Lv29n-DSq1CgMghRyDlEDU2UAs14zSMxNm7Vi5z7aoIipFb70WdE4chi7aokjFwecLJig5ZQ:1wiFyI:x4DGVlJBDcU3l2u4VzN2in9TKNPuJpnrCc1GWmzX3zM",
+        "expire_date": "2026-07-24T18:29:10.757Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "o8cbzommd2m3qsac0rbfrg7rs4972sbo",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wxYLJ:z21BZqSAAG9Gf5C5_GtyPs3anxKYjtVEEnnAhYg-zBw",
+        "expire_date": "2026-09-04T23:08:09.084Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "q03yo8vqvddilfdg4ep8zg3x1golbqxa",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wiD5M:a0URHtbzdfC7tQzYPR3TWLQelmi0-NMsUKTXlQ_H3aU",
+        "expire_date": "2026-07-24T15:24:16.295Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "qk84852p9mk9udvcy4oiadi06iydpht2",
+    "fields": {
+        "session_data": ".eJxVjMsKwjAQAP9lzxKyW5pHj979hrDJpqYqCTTtSfx3KfSg15lh3hB430rYe17DIjABweWXRU7PXA8hD673plKr27pEdSTqtF3dmuTX9Wz_BoV7gQkGE2X2A2d2ka0RIs1CSQbvvSbEOKPWORE6G2XkURM550xGy6iRPHy-7iU3Vw:1wiJyP:G8TUI8duskjmRZuKAXWdOLktf_nw4BDYTup4jHoszV0",
+        "expire_date": "2026-07-24T22:45:33.301Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "viuq633zd2nxyky8imv14jz8df7ht14w",
+    "fields": {
+        "session_data": ".eJxVjDEKwzAMAP-iuRg3DracsXvfYCRLrtOWBOJkCv17CWRo17vjdki0rTVtTZc0Cgzg4fLLmPJLp0PIk6bHbPI8rcvI5kjMaZu5z6Lv29n-DSq1CgMghRyDlEDU2UAs14zSMxNm7Vi5z7aoIipFb70WdE4chi7aokjFwecLJig5ZQ:1wiJnI:4taPP3W1sM1KeWBip3wMMDb9_PNnXQM9Px2UWWu7uOk",
+        "expire_date": "2026-07-24T22:34:04.999Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "xzkat9c1f34f15lb5o305rfc170pcciz",
+    "fields": {
+        "session_data": ".eJxVjLsOgkAQAP9la3PxbjlWKO39BrLsQ1ADCQeV8d8NCYW2M5N5Q8fbOnRbsaUbFVqIcPplPcvTpl3og6f7HGSe1mXsw56Ew5Zwm9Ve16P9GwxcBmihjjWrsVWpSeYolJOh5BgJNdEFM1WKnpBUasuNs7s49eKYzxGpgc8X56k4EQ:1wiKe8:fuOkMCgiR2Xf_ykjKXC9f2pgRKX5knBGcGUopb-3vnE",
+        "expire_date": "2026-07-24T23:28:40.663Z"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 1,
+    "fields": {
+        "nome": "Explosivo",
+        "picto": "pictogramas/ghs01_explosivo.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 2,
+    "fields": {
+        "nome": "Inflamßvel",
+        "picto": "pictogramas/ghs02_inflamavel.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 3,
+    "fields": {
+        "nome": "Comburente",
+        "picto": "pictogramas/ghs03_comburente.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 4,
+    "fields": {
+        "nome": "Gßs sob pressÒo",
+        "picto": "pictogramas/ghs04_gas_sob_pressao.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 5,
+    "fields": {
+        "nome": "Corrosivo",
+        "picto": "pictogramas/ghs05_corrosivo.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 6,
+    "fields": {
+        "nome": "Toxicidade aguda (Caveira)",
+        "picto": "pictogramas/ghs06_toxicidade_aguda.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 7,
+    "fields": {
+        "nome": "Irritante/Perigoso Ó camada de oz¶nio (ExclamaþÒo)",
+        "picto": "pictogramas/ghs07_irritante.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 8,
+    "fields": {
+        "nome": "MutagÛnico/CarcinogÛnico (Perigo Ó sa·de)",
+        "picto": "pictogramas/ghs08_perigo_a_saude.png"
+    }
+},
+{
+    "model": "estoque.ghs",
+    "pk": 9,
+    "fields": {
+        "nome": "Perigoso ao meio ambiente (Aqußtico)",
+        "picto": "pictogramas/ghs09_perigoso_ao_meio_ambiente.png"
+    }
+},
+{
+    "model": "estoque.armario",
+    "pk": 1,
+    "fields": {
+        "posicao": 1
+    }
+},
+{
+    "model": "estoque.armario",
+    "pk": 2,
+    "fields": {
+        "posicao": 2
+    }
+},
+{
+    "model": "estoque.armario",
+    "pk": 3,
+    "fields": {
+        "posicao": 3
+    }
+},
+{
+    "model": "estoque.armario",
+    "pk": 4,
+    "fields": {
+        "posicao": 4
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 7,
+    "fields": {
+        "nome": "┴lcool EtÝlico",
+        "cas": "64-17-5",
+        "fds_url": "https://www.labsynth.com.br/fds/Alcool%20Etilico%20Absoluto.pdf",
+        "classificacoes_ghs": [
+            2
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 8,
+    "fields": {
+        "nome": "Acetona",
+        "cas": "67-64-1",
+        "fds_url": "https://kaliumchemical.com.br/upload_arquivos/2025/03/2025030432857001743167792.pdf",
+        "classificacoes_ghs": [
+            2
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 9,
+    "fields": {
+        "nome": "Metanol",
+        "cas": "67-56-1",
+        "fds_url": "https://www.verquimica.com.br/wp-content/uploads/2025/01/FDS-METANOL_REVISAO-14.pdf",
+        "classificacoes_ghs": [
+            2
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 10,
+    "fields": {
+        "nome": "Hexano",
+        "cas": "110-54-3",
+        "fds_url": "https://www.verquimica.com.br/wp-content/uploads/2025/01/FDS-HEXANO_REVISAO-10.pdf",
+        "classificacoes_ghs": [
+            2
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 11,
+    "fields": {
+        "nome": "┴cido Sulf·rico",
+        "cas": "7664-93-9",
+        "fds_url": "https://exodocientifica.com.br/downloadfds.php?code=AS09591RA",
+        "classificacoes_ghs": [
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 12,
+    "fields": {
+        "nome": "┴cido ClorÝdrico",
+        "cas": "7647-01-0",
+        "fds_url": "https://dinamicaquimica.com.br/freagentes/P.10.0021.045.00_ACIDO_CLORIDRICO_PA_ACS.pdf",
+        "classificacoes_ghs": [
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 13,
+    "fields": {
+        "nome": "┴cido NÝtrico",
+        "cas": "7697-37-2",
+        "fds_url": "https://www.labsynth.com.br/fds/Acido%20Nitrico.pdf",
+        "classificacoes_ghs": [
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 14,
+    "fields": {
+        "nome": "┴cido AcÚtico",
+        "cas": "64-19-7",
+        "fds_url": "https://www.labsynth.com.br/fds/Acido%20Acetico.pdf",
+        "classificacoes_ghs": [
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 15,
+    "fields": {
+        "nome": "Hidr¾xido de S¾dio",
+        "cas": "1310-73-2",
+        "fds_url": "https://exodocientifica.com.br/fispq_por_codigo/HS09780RA.pdf",
+        "classificacoes_ghs": [
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 16,
+    "fields": {
+        "nome": "Hidr¾xido de Potßssio",
+        "cas": "1310-58-3",
+        "fds_url": "https://dinamicaquimica.com.br/freagentes/P.10.0594.021.00_HIDROXIDO_DE_POTASSIO_PA_ACS.pdf",
+        "classificacoes_ghs": [
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 17,
+    "fields": {
+        "nome": "Hidr¾xido de Am¶nio",
+        "cas": "1336-21-6",
+        "fds_url": "https://www.labsynth.com.br/fds/Hidroxido%20de%20Amonio.pdf",
+        "classificacoes_ghs": [
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 18,
+    "fields": {
+        "nome": "Carbonato de S¾dio",
+        "cas": "497-19-8",
+        "fds_url": "https://www.labsynth.com.br/fds/Carbonato%20de%20Sodio.pdf",
+        "classificacoes_ghs": [
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 19,
+    "fields": {
+        "nome": "Permanganato de Potßssio",
+        "cas": "7722-64-7",
+        "fds_url": "https://www.labsynth.com.br/fds/Permanganato%20de%20Potassio.pdf",
+        "classificacoes_ghs": [
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 20,
+    "fields": {
+        "nome": "Cloreto de S¾dio",
+        "cas": "7647-14-5",
+        "fds_url": "https://www.labsynth.com.br/fds/Cloreto%20de%20Sodio.pdf",
+        "classificacoes_ghs": []
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 21,
+    "fields": {
+        "nome": "Sulfato de Cobre (II) pentahidratado",
+        "cas": "7758-99-8",
+        "fds_url": "https://www.carlroth.com/medias/SDB-8175-PT-PT.pdf?context=bWFzdGVyfHNlY3VyaXR5RGF0YXNoZWV0c3wzMDkwNjF8YXBwbGljYXRpb24vcGRmfGFEUXdMMmd5Tnk4NU1qTXpNakV3TnpZNU5ETTRMMU5FUWw4NE1UYzFYMUJVWDFCVUxuQmtaZ3w4Z",
+        "classificacoes_ghs": [
+            7,
+            9
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 22,
+    "fields": {
+        "nome": "FenolftaleÝna",
+        "cas": "77-09-8",
+        "fds_url": "https://www.labsynth.com.br/fds/Fenolftaleina.pdf",
+        "classificacoes_ghs": [
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 23,
+    "fields": {
+        "nome": "Nitrato de Prata",
+        "cas": "7761-88-8",
+        "fds_url": "https://www.labsynth.com.br/fds/Nitrato%20de%20Prata.pdf",
+        "classificacoes_ghs": [
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 24,
+    "fields": {
+        "nome": "Per¾xido de HidrogÛnio",
+        "cas": "7722-84-1",
+        "fds_url": "https://www.labsynth.com.br/fds/Peroxido%20de%20Hidrogenio%2050.pdf",
+        "classificacoes_ghs": [
+            3,
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 29,
+    "fields": {
+        "nome": "┴cido NÝtrico",
+        "cas": "7697-37-2",
+        "fds_url": "https://dinamicaquimica.com.br/freagentes/P.10.0021.141.00_ACIDO_NITRICO_65_PA_ACS.pdf",
+        "classificacoes_ghs": [
+            5
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 30,
+    "fields": {
+        "nome": "Nitrato de prata",
+        "cas": "7761-88-8",
+        "fds_url": "https://dinamicaquimica.com.br/freagentes/P.10.0747.057.00_NITRATO_DE_PRATA_PA_ACS.pdf",
+        "classificacoes_ghs": [
+            3,
+            5,
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 31,
+    "fields": {
+        "nome": "┴cido orto-Fosf¾rico",
+        "cas": "7664-38-2",
+        "fds_url": "https://neon2-api.mercanteweb.com.br/api/Produto/produtoFicha?codProduto=109",
+        "classificacoes_ghs": [
+            5,
+            7
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 32,
+    "fields": {
+        "nome": "Dicromato de Potßssio",
+        "cas": "7778-50-9",
+        "fds_url": "https://dinamicaquimica.com.br/freagentes/P.10.0360.003.00_DICROMATO_DE_POTASSIO_PA_ACS.pdf",
+        "classificacoes_ghs": [
+            3,
+            5,
+            8,
+            9,
+            6
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 33,
+    "fields": {
+        "nome": "┴cido SalicÝlico",
+        "cas": "69-72-7",
+        "fds_url": "https://www.carlroth.com/medias/SDB-8626-PT-PT.pdf?context=bWFzdGVyfHNlY3VyaXR5RGF0YXNoZWV0c3wyOTUwNDl8YXBwbGljYXRpb24vcGRmfGFHVmhMMmhpTWk4NU1qSXpNalk1TWpJd016Z3lMMU5FUWw4NE5qSTJYMUJVWDFCVUxuQmtaZ3w0N",
+        "classificacoes_ghs": [
+            7,
+            8
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 34,
+    "fields": {
+        "nome": "Bicarbonato de S¾dio",
+        "cas": "144-55-8",
+        "fds_url": "https://exodocientifica.com.br/downloadfds.php?code=BS06128RA",
+        "classificacoes_ghs": [
+            3
+        ]
+    }
+},
+{
+    "model": "estoque.reagente",
+    "pk": 35,
+    "fields": {
+        "nome": "Sacarose",
+        "cas": "57-50-1",
+        "fds_url": "https://www.labsynth.com.br/fds/Sacarose.pdf",
+        "classificacoes_ghs": []
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 7,
+    "fields": {
+        "reagente": 7,
+        "lote": "ETOH-96-2024-A",
+        "validade": "2026-06-04",
+        "quantidade": "1.80",
+        "qtd_unidade": "L",
+        "concentracao": "96.0000",
+        "conc_unidade": "%",
+        "fornecedor": "SynthLab QuÝmica",
+        "codigo_barras": "SENAI-001",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 8,
+    "fields": {
+        "reagente": 7,
+        "lote": "ETOH-70-2025-B",
+        "validade": "2026-07-29",
+        "quantidade": "450.00",
+        "qtd_unidade": "mL",
+        "concentracao": "70.0000",
+        "conc_unidade": "%",
+        "fornecedor": "DinÔmica QuÝmica",
+        "codigo_barras": "SENAI-002",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 9,
+    "fields": {
+        "reagente": 8,
+        "lote": "ACE-2025-03",
+        "validade": "2027-09-02",
+        "quantidade": "0.75",
+        "qtd_unidade": "L",
+        "concentracao": "99.5000",
+        "conc_unidade": "%",
+        "fornecedor": "Neon QuÝmica",
+        "codigo_barras": "SENAI-003",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 10,
+    "fields": {
+        "reagente": 9,
+        "lote": "MET-2025-01",
+        "validade": "2026-07-21",
+        "quantidade": "380.00",
+        "qtd_unidade": "mL",
+        "concentracao": "99.8000",
+        "conc_unidade": "%",
+        "fornecedor": "Quimis Ind·stria",
+        "codigo_barras": "SENAI-004",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 11,
+    "fields": {
+        "reagente": 10,
+        "lote": "HEX-2023-09",
+        "validade": "2026-05-10",
+        "quantidade": "180.00",
+        "qtd_unidade": "mL",
+        "concentracao": "95.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Vetec QuÝmica",
+        "codigo_barras": "SENAI-005",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 12,
+    "fields": {
+        "reagente": 11,
+        "lote": "H2SO4-2024-02",
+        "validade": "2026-05-28",
+        "quantidade": "420.00",
+        "qtd_unidade": "mL",
+        "concentracao": "98.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Merck Brasil",
+        "codigo_barras": "SENAI-006",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 13,
+    "fields": {
+        "reagente": 12,
+        "lote": "HCL-37-2025-A",
+        "validade": "2026-07-27",
+        "quantidade": "850.00",
+        "qtd_unidade": "mL",
+        "concentracao": "37.0000",
+        "conc_unidade": "%",
+        "fornecedor": "DinÔmica QuÝmica",
+        "codigo_barras": "SENAI-007",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 14,
+    "fields": {
+        "reagente": 12,
+        "lote": "HCL-10-2025-B",
+        "validade": "2027-05-15",
+        "quantidade": "200.00",
+        "qtd_unidade": "mL",
+        "concentracao": "10.0000",
+        "conc_unidade": "%",
+        "fornecedor": "LabSynth Produtos",
+        "codigo_barras": "SENAI-008",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 15,
+    "fields": {
+        "reagente": 13,
+        "lote": "HNO3-2025-01",
+        "validade": "2027-04-15",
+        "quantidade": "250.00",
+        "qtd_unidade": "mL",
+        "concentracao": "65.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Cromato QuÝmica",
+        "codigo_barras": "SENAI-009",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 16,
+    "fields": {
+        "reagente": 14,
+        "lote": "CH3COOH-2025",
+        "validade": "2026-10-07",
+        "quantidade": "500.00",
+        "qtd_unidade": "mL",
+        "concentracao": "5.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Exodo CientÝfica",
+        "codigo_barras": "SENAI-010",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 17,
+    "fields": {
+        "reagente": 15,
+        "lote": "NAOH-2024-ESC",
+        "validade": "2026-06-17",
+        "quantidade": "420.00",
+        "qtd_unidade": "g",
+        "concentracao": "97.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Exodo CientÝfica",
+        "codigo_barras": "SENAI-011",
+        "armario": 3
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 18,
+    "fields": {
+        "reagente": 16,
+        "lote": "KOH-2025-01",
+        "validade": "2026-07-17",
+        "quantidade": "230.00",
+        "qtd_unidade": "g",
+        "concentracao": "85.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Sigma-Aldrich Brasil",
+        "codigo_barras": "SENAI-012",
+        "armario": 3
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 19,
+    "fields": {
+        "reagente": 17,
+        "lote": "NH4OH-2025-02",
+        "validade": "2026-08-02",
+        "quantidade": "480.00",
+        "qtd_unidade": "mL",
+        "concentracao": "25.0000",
+        "conc_unidade": "%",
+        "fornecedor": "LabSynth Produtos",
+        "codigo_barras": "SENAI-013",
+        "armario": 3
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 20,
+    "fields": {
+        "reagente": 18,
+        "lote": "NA2CO3-2025",
+        "validade": "2027-12-31",
+        "quantidade": "950.00",
+        "qtd_unidade": "g",
+        "concentracao": "100.0000",
+        "conc_unidade": "%",
+        "fornecedor": "DinÔmica QuÝmica",
+        "codigo_barras": "SENAI-014",
+        "armario": 3
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 21,
+    "fields": {
+        "reagente": 19,
+        "lote": "KMnO4-2025",
+        "validade": "2027-11-01",
+        "quantidade": "85.00",
+        "qtd_unidade": "g",
+        "concentracao": "99.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Vetec QuÝmica",
+        "codigo_barras": "SENAI-015",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 22,
+    "fields": {
+        "reagente": 20,
+        "lote": "NACL-2025-PA",
+        "validade": "2028-07-08",
+        "quantidade": "1.00",
+        "qtd_unidade": "kg",
+        "concentracao": "100.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Neon QuÝmica",
+        "codigo_barras": "SENAI-016",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 23,
+    "fields": {
+        "reagente": 21,
+        "lote": "CUSO4-2024-11",
+        "validade": "2026-08-04",
+        "quantidade": "210.00",
+        "qtd_unidade": "g",
+        "concentracao": "100.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Quimis Ind·stria",
+        "codigo_barras": "SENAI-017",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 24,
+    "fields": {
+        "reagente": 22,
+        "lote": "FEN-2023-04",
+        "validade": "2026-05-22",
+        "quantidade": "18.00",
+        "qtd_unidade": "g",
+        "concentracao": "1.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Merck Brasil",
+        "codigo_barras": "SENAI-018",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 25,
+    "fields": {
+        "reagente": 23,
+        "lote": "AGNO3-2025",
+        "validade": "2027-07-04",
+        "quantidade": "42.00",
+        "qtd_unidade": "g",
+        "concentracao": "100.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Cromato QuÝmica",
+        "codigo_barras": "SENAI-019",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 26,
+    "fields": {
+        "reagente": 24,
+        "lote": "H2O2-3PCT-2025",
+        "validade": "2026-07-24",
+        "quantidade": "350.00",
+        "qtd_unidade": "mL",
+        "concentracao": "3.0000",
+        "conc_unidade": "%",
+        "fornecedor": "SynthLab QuÝmica",
+        "codigo_barras": "SENAI-020",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 27,
+    "fields": {
+        "reagente": 11,
+        "lote": "1903061140",
+        "validade": "2023-03-07",
+        "quantidade": "1000.00",
+        "qtd_unidade": "mL",
+        "concentracao": "98.0800",
+        "conc_unidade": "%",
+        "fornecedor": "Ûxodo",
+        "codigo_barras": "",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 28,
+    "fields": {
+        "reagente": 31,
+        "lote": "43529",
+        "validade": "2022-08-12",
+        "quantidade": "980.00",
+        "qtd_unidade": "ml",
+        "concentracao": "85.0000",
+        "conc_unidade": "%",
+        "fornecedor": "NCON",
+        "codigo_barras": "",
+        "armario": 4
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 29,
+    "fields": {
+        "reagente": 34,
+        "lote": "210713933",
+        "validade": "2027-07-14",
+        "quantidade": "1000.00",
+        "qtd_unidade": "g",
+        "concentracao": "99.7000",
+        "conc_unidade": "%",
+        "fornecedor": "╩xodo",
+        "codigo_barras": "",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 30,
+    "fields": {
+        "reagente": 35,
+        "lote": "162405",
+        "validade": "2016-12-26",
+        "quantidade": "500.00",
+        "qtd_unidade": "g",
+        "concentracao": "99.0000",
+        "conc_unidade": "%",
+        "fornecedor": "labsynth",
+        "codigo_barras": "",
+        "armario": 1
+    }
+},
+{
+    "model": "estoque.itemestoque",
+    "pk": 31,
+    "fields": {
+        "reagente": 32,
+        "lote": "1107902",
+        "validade": "2026-10-01",
+        "quantidade": "1000.00",
+        "qtd_unidade": "g",
+        "concentracao": "99.0000",
+        "conc_unidade": "%",
+        "fornecedor": "Vetec",
+        "codigo_barras": "",
+        "armario": 2
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 8,
+    "fields": {
+        "item_estoque": 7,
+        "tipo": "Entrada",
+        "quantidade": "1.80",
+        "unidade": "L",
+        "data_hora": "2026-07-10T01:19:50.260Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴lcool EtÝlico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 9,
+    "fields": {
+        "item_estoque": 8,
+        "tipo": "Entrada",
+        "quantidade": "450.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.273Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴lcool EtÝlico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 10,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Entrada",
+        "quantidade": "1.00",
+        "unidade": "L",
+        "data_hora": "2026-07-10T01:19:50.286Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Acetona"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 11,
+    "fields": {
+        "item_estoque": 10,
+        "tipo": "Entrada",
+        "quantidade": "380.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.301Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Metanol"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 12,
+    "fields": {
+        "item_estoque": 11,
+        "tipo": "Entrada",
+        "quantidade": "180.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.317Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Hexano"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 13,
+    "fields": {
+        "item_estoque": 12,
+        "tipo": "Entrada",
+        "quantidade": "420.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.327Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴cido Sulf·rico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 14,
+    "fields": {
+        "item_estoque": 13,
+        "tipo": "Entrada",
+        "quantidade": "850.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.341Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴cido ClorÝdrico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 15,
+    "fields": {
+        "item_estoque": 14,
+        "tipo": "Entrada",
+        "quantidade": "200.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.354Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴cido ClorÝdrico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 16,
+    "fields": {
+        "item_estoque": 15,
+        "tipo": "Entrada",
+        "quantidade": "250.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.369Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴cido NÝtrico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 17,
+    "fields": {
+        "item_estoque": 16,
+        "tipo": "Entrada",
+        "quantidade": "500.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.385Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: ┴cido AcÚtico"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 18,
+    "fields": {
+        "item_estoque": 17,
+        "tipo": "Entrada",
+        "quantidade": "420.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.395Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Hidr¾xido de S¾dio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 19,
+    "fields": {
+        "item_estoque": 18,
+        "tipo": "Entrada",
+        "quantidade": "230.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.408Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Hidr¾xido de Potßssio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 20,
+    "fields": {
+        "item_estoque": 19,
+        "tipo": "Entrada",
+        "quantidade": "480.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.422Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Hidr¾xido de Am¶nio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 21,
+    "fields": {
+        "item_estoque": 20,
+        "tipo": "Entrada",
+        "quantidade": "950.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.437Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Carbonato de S¾dio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 22,
+    "fields": {
+        "item_estoque": 21,
+        "tipo": "Entrada",
+        "quantidade": "85.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.448Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Permanganato de Potßssio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 23,
+    "fields": {
+        "item_estoque": 22,
+        "tipo": "Entrada",
+        "quantidade": "1.00",
+        "unidade": "kg",
+        "data_hora": "2026-07-10T01:19:50.461Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Cloreto de S¾dio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 24,
+    "fields": {
+        "item_estoque": 23,
+        "tipo": "Entrada",
+        "quantidade": "210.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.478Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Sulfato de Cobre (II) pentahidratado"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 25,
+    "fields": {
+        "item_estoque": 24,
+        "tipo": "Entrada",
+        "quantidade": "18.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.494Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: FenolftaleÝna"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 26,
+    "fields": {
+        "item_estoque": 25,
+        "tipo": "Entrada",
+        "quantidade": "42.00",
+        "unidade": "g",
+        "data_hora": "2026-07-10T01:19:50.510Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Nitrato de Prata"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 27,
+    "fields": {
+        "item_estoque": 26,
+        "tipo": "Entrada",
+        "quantidade": "350.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T01:19:50.528Z",
+        "usuario": 9,
+        "justificativa": "Carga lab SENAI ù entrada inicial: Per¾xido de HidrogÛnio"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 28,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Entrada",
+        "quantidade": "500.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T22:17:05.131Z",
+        "usuario": 1,
+        "justificativa": ""
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 29,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Consumo",
+        "quantidade": "500.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T22:27:08.590Z",
+        "usuario": 1,
+        "justificativa": "Test"
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 30,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "SaÝda",
+        "quantidade": "200.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T22:27:55.148Z",
+        "usuario": 1,
+        "justificativa": ""
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 31,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Descarte",
+        "quantidade": "200.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T22:28:04.433Z",
+        "usuario": 1,
+        "justificativa": ""
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 32,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Entrada",
+        "quantidade": "200.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T23:27:12.231Z",
+        "usuario": 5,
+        "justificativa": ""
+    }
+},
+{
+    "model": "estoque.historicomovimentacao",
+    "pk": 33,
+    "fields": {
+        "item_estoque": 9,
+        "tipo": "Consumo",
+        "quantidade": "50.00",
+        "unidade": "mL",
+        "data_hora": "2026-07-10T23:27:49.952Z",
+        "usuario": 6,
+        "justificativa": ""
+    }
+}
+]

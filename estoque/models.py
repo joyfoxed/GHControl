@@ -393,6 +393,12 @@ class HistoricoMovimentacao(models.Model):
         verbose_name = 'Histórico de movimentação'
         verbose_name_plural = 'Históricos de movimentação'
         ordering = ['-data_hora']
+        permissions = [
+            (
+                'pode_movimentar_estoque',
+                'Pode registrar movimentações de estoque (entrada, saída, consumo e descarte)',
+            ),
+        ]
 
     def __str__(self):
         return (

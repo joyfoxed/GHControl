@@ -9,10 +9,12 @@
         <h2 class="text-2xl font-bold text-slate-900">Estoque</h2>
         <p class="mt-1 text-slate-500">Frascos disponíveis no laboratório</p>
     </div>
+    {% if pode_movimentar_estoque %}
     <a href="{% url 'estoque:registrar_movimentacao' %}"
        class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
         + Registrar Movimentação
     </a>
+    {% endif %}
 </div>
 
 <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
