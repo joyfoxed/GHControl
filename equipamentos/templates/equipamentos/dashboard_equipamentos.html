@@ -1,0 +1,158 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Dashboard EPI/EPC — GHControl{% endblock %}
+
+{% block top_bar %}
+<div class="flex items-center justify-between">
+    <p class="text-sm font-medium text-slate-500">Módulo EPI / EPC — Equipamentos de Proteção</p>
+    {% if user.is_staff %}
+    <div class="flex gap-2">
+        <a href="{% url 'equipamentos:cadastrar_epi' %}"
+           class="rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-700">+ EPI</a>
+        <a href="{% url 'equipamentos:cadastrar_epc' %}"
+           class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">+ EPC</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">Dashboard EPI / EPC</h2>
+    <p class="mt-1 text-slate-500">Controle de equipamentos de proteção individual e coletiva</p>
+</div>
+
+<!-- Cards de resumo -->
+<div class="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p class="text-sm font-medium text-slate-500">Total de EPIs</p>
+        <p class="mt-2 text-3xl font-bold text-brand-700">{{ total_epis }}</p>
+    </div>
+    <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 shadow-sm">
+        <p class="text-sm font-medium text-amber-700">EPIs com estoque baixo</p>
+        <p class="mt-2 text-3xl font-bold text-amber-800">{{ epis_estoque_baixo }}</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p class="text-sm font-medium text-slate-500">Total de EPCs</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">{{ total_epcs }}</p>
+    </div>
+    <div class="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm">
+        <p class="text-sm font-medium text-red-700">EPCs — inspeção atrasada/próxima</p>
+        <p class="mt-2 text-3xl font-bold text-red-800">{{ epcs_inspecao_alerta }}</p>
+    </div>
+</div>
+
+<div class="mb-8 grid gap-6 lg:grid-cols-2">
+    <!-- EPIs estoque baixo -->
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-100 px-6 py-4">
+            <div>
+                <h3 class="text-lg font-semibold text-slate-900">EPIs — Estoque baixo</h3>
+                <p class="text-sm text-slate-500">Abaixo ou no mínimo</p>
+            </div>
+            <a href="{% url 'equipamentos:lista_epis' %}" class="text-sm font-medium text-brand-700 hover:underline">Ver todos</a>
+        </div>
+        <ul class="divide-y divide-slate-100">
+            {% for epi in lista_epis_baixo %}
+            <li class="flex items-center justify-between px-6 py-3 text-sm">
+                <a href="{% url 'equipamentos:detalhe_epi' epi.pk %}" class="font-medium text-slate-900 hover:text-brand-700">{{ epi.nome }}</a>
+                <span class="font-semibold text-amber-700">{{ epi.estoque_disponivel }} / mín. {{ epi.estoque_minimo }}</span>
+            </li>
+            {% empty %}
+            <li class="px-6 py-8 text-center text-sm text-slate-400">Nenhum EPI com estoque baixo.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- EPCs inspeção -->
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-100 px-6 py-4">
+            <div>
+                <h3 class="text-lg font-semibold text-slate-900">EPCs — Inspeções</h3>
+                <p class="text-sm text-slate-500">Atrasadas ou nos próximos 7 dias</p>
+            </div>
+            <a href="{% url 'equipamentos:lista_epcs' %}" class="text-sm font-medium text-brand-700 hover:underline">Ver todos</a>
+        </div>
+        <ul class="divide-y divide-slate-100">
+            {% for epc in lista_epcs_atrasados %}
+            <li class="flex items-center justify-between px-6 py-3 text-sm">
+                <a href="{% url 'equipamentos:detalhe_epc' epc.pk %}" class="font-medium text-slate-900 hover:text-brand-700">{{ epc.nome }}</a>
+                <span class="font-semibold text-red-700">Atrasada {{ epc.data_proxima_inspecao|date:"d/m/Y" }}</span>
+            </li>
+            {% endfor %}
+            {% for epc in lista_epcs_proximos %}
+            <li class="flex items-center justify-between px-6 py-3 text-sm">
+                <a href="{% url 'equipamentos:detalhe_epc' epc.pk %}" class="font-medium text-slate-900 hover:text-brand-700">{{ epc.nome }}</a>
+                <span class="font-semibold text-amber-700">Em {{ epc.data_proxima_inspecao|date:"d/m/Y" }}</span>
+            </li>
+            {% endfor %}
+            {% if not lista_epcs_atrasados and not lista_epcs_proximos %}
+            <li class="px-6 py-8 text-center text-sm text-slate-400">Nenhuma inspeção pendente.</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<!-- Listas rápidas -->
+<div class="grid gap-6 lg:grid-cols-2">
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-6 py-4">
+            <h3 class="text-lg font-semibold text-slate-900">EPIs recentes</h3>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-sm">
+                <thead class="bg-slate-50">
+                    <tr>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Nome</th>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Estoque</th>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for epi in ultimos_epis %}
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-3 font-medium">
+                            <a href="{% url 'equipamentos:detalhe_epi' epi.pk %}" class="text-brand-700 hover:underline">{{ epi.nome }}</a>
+                        </td>
+                        <td class="px-4 py-3">{{ epi.estoque_disponivel }}</td>
+                        <td class="px-4 py-3">{{ epi.status }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="3" class="px-4 py-8 text-center text-slate-400">Nenhum EPI cadastrado.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-6 py-4">
+            <h3 class="text-lg font-semibold text-slate-900">EPCs recentes</h3>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-sm">
+                <thead class="bg-slate-50">
+                    <tr>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Nome</th>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Próx. inspeção</th>
+                        <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for epc in ultimos_epcs %}
+                    <tr class="hover:bg-slate-50">
+                        <td class="px-4 py-3 font-medium">
+                            <a href="{% url 'equipamentos:detalhe_epc' epc.pk %}" class="text-brand-700 hover:underline">{{ epc.nome }}</a>
+                        </td>
+                        <td class="px-4 py-3">{{ epc.data_proxima_inspecao|date:"d/m/Y" }}</td>
+                        <td class="px-4 py-3">{{ epc.status }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="3" class="px-4 py-8 text-center text-slate-400">Nenhum EPC cadastrado.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

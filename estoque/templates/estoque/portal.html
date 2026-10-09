@@ -24,7 +24,6 @@
     </script>
 </head>
 <body class="flex min-h-screen flex-col bg-slate-100 antialiased">
-    <!-- Topo com logout -->
     <header class="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 shadow-sm">
         <div>
             <p class="text-xs font-semibold uppercase tracking-widest text-brand-600">SENAI</p>
@@ -44,47 +43,54 @@
         </div>
     </header>
 
-    <!-- Conteúdo central -->
     <main class="flex flex-1 flex-col items-center justify-center px-4 py-12">
         <div class="mb-10 text-center">
             <h2 class="text-2xl font-bold text-slate-900">Bem-vindo ao GHControl</h2>
-            <p class="mt-2 text-slate-500">Escolha como deseja continuar</p>
+            <p class="mt-2 text-slate-500">Selecione o módulo que deseja acessar</p>
         </div>
 
-        <div class="grid w-full max-w-3xl gap-6 sm:grid-cols-2">
-            <!-- Dashboard -->
+        <div class="grid w-full max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Reagentes -->
             <a href="{% url 'estoque:dashboard' %}"
-               class="group flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-10 shadow-sm transition hover:border-brand-500 hover:shadow-md">
-                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl transition group-hover:bg-brand-100">
-                    📊
-                </span>
-                <h3 class="text-lg font-bold text-slate-900">Painel de Dashboard</h3>
+               class="group flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-brand-500 hover:shadow-md">
+                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl transition group-hover:bg-brand-100">🧪</span>
+                <h3 class="text-lg font-bold text-slate-900">Módulo Reagentes</h3>
                 <p class="mt-2 text-center text-sm text-slate-500">
-                    {% if pode_movimentar_estoque %}
-                    Consulte estoque, alertas de validade e registre movimentações
-                    {% else %}
-                    Consulte estoque e alertas de validade (modo somente leitura)
-                    {% endif %}
+                    Estoque, GHS, alertas de validade e movimentações
                 </p>
-                <span class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
-                    Acessar →
-                </span>
+                <span class="mt-4 text-sm font-semibold text-brand-600">Acessar →</span>
             </a>
 
-            <!-- Administração (somente staff) -->
+            <!-- EPI / EPC -->
+            <a href="{% url 'equipamentos:dashboard' %}"
+               class="group flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-brand-500 hover:shadow-md">
+                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 text-3xl transition group-hover:bg-brand-100">🦺</span>
+                <h3 class="text-lg font-bold text-slate-900">Módulo EPI / EPC</h3>
+                <p class="mt-2 text-center text-sm text-slate-500">
+                    Controle de EPIs, estoque mínimo e inspeções de EPCs
+                </p>
+                <span class="mt-4 text-sm font-semibold text-brand-600">Acessar →</span>
+            </a>
+
+            <!-- Vidrarias (em breve) -->
+            <div class="relative flex flex-col items-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8 opacity-80">
+                <span class="absolute right-3 top-3 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-700">Em breve</span>
+                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-200 text-3xl">⚗️</span>
+                <h3 class="text-lg font-bold text-slate-500">Módulo Vidrarias</h3>
+                <p class="mt-2 text-center text-sm text-slate-400">
+                    Controle de materiais de vidro e utensílios de laboratório
+                </p>
+            </div>
+
             {% if user.is_staff %}
             <a href="/admin/"
-               class="group flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-10 shadow-sm transition hover:border-slate-400 hover:shadow-md">
-                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-3xl transition group-hover:bg-slate-200">
-                    ⚙️
-                </span>
-                <h3 class="text-lg font-bold text-slate-900">Administração do Sistema</h3>
+               class="group flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-slate-400 hover:shadow-md sm:col-span-2 lg:col-span-3 lg:max-w-md lg:justify-self-center">
+                <span class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-100 text-3xl transition group-hover:bg-slate-200">⚙️</span>
+                <h3 class="text-lg font-bold text-slate-900">Painel Administrativo</h3>
                 <p class="mt-2 text-center text-sm text-slate-500">
-                    Gerencie reagentes, usuários e configurações avançadas
+                    Configurações, usuários, históricos e cadastros avançados
                 </p>
-                <span class="mt-4 text-sm font-semibold text-slate-600 group-hover:text-slate-800">
-                    Acessar →
-                </span>
+                <span class="mt-4 text-sm font-semibold text-slate-600">Acessar →</span>
             </a>
             {% endif %}
         </div>

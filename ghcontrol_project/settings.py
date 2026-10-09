@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # App principal do GHControl — controle de estoque e segurança química
     'estoque',
+    # Módulo EPI / EPC — equipamentos de proteção
+    'equipamentos',
 ]
 
 MIDDLEWARE = [

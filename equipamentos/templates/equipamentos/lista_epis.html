@@ -1,0 +1,77 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}EPIs — GHControl{% endblock %}
+
+{% block top_bar %}
+<p class="text-sm font-medium text-slate-500">Módulo EPI / EPC</p>
+{% endblock %}
+
+{% block content %}
+<div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900">EPIs</h2>
+        <p class="mt-1 text-slate-500">Equipamentos de Proteção Individual</p>
+    </div>
+    {% if user.is_staff %}
+    <a href="{% url 'equipamentos:cadastrar_epi' %}"
+       class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
+        + Cadastrar EPI
+    </a>
+    {% endif %}
+</div>
+
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-100">
+            <thead class="bg-slate-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Nome</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">CA</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Validade</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Estoque</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Local</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                {% for item in itens %}
+                <tr class="hover:bg-slate-50">
+                    <td class="px-6 py-4 text-sm font-medium text-slate-900">
+                        <a href="{% url 'equipamentos:detalhe_epi' item.pk %}" class="text-brand-700 hover:underline">{{ item.nome }}</a>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-600">{{ item.ca }}</td>
+                    <td class="px-6 py-4 text-sm {% if item.validade_vencida %}font-semibold text-red-700{% else %}text-slate-600{% endif %}">
+                        {{ item.validade|date:"d/m/Y" }}
+                    </td>
+                    <td class="px-6 py-4 text-sm {% if item.estoque_baixo %}font-semibold text-amber-700{% else %}text-slate-600{% endif %}">
+                        {{ item.estoque_disponivel }} <span class="text-slate-400">(mín. {{ item.estoque_minimo }})</span>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-600">{{ item.local_armazenado }}</td>
+                    <td class="px-6 py-4 text-sm">
+                        <span class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium
+                            {% if item.status == 'Ativo' %}bg-emerald-100 text-emerald-800
+                            {% elif item.status == 'Vencido' %}bg-red-100 text-red-800
+                            {% elif item.status == 'Bloqueado' %}bg-amber-100 text-amber-800
+                            {% else %}bg-slate-100 text-slate-700{% endif %}">
+                            {{ item.status }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-sm">
+                        <a href="{% url 'equipamentos:detalhe_epi' item.pk %}" class="font-medium text-brand-700 hover:underline">Ver</a>
+                        {% if user.is_staff %}
+                        · <a href="{% url 'equipamentos:editar_epi' item.pk %}" class="font-medium text-slate-600 hover:underline">Editar</a>
+                        · <a href="{% url 'equipamentos:dar_baixa_epi' item.pk %}" class="font-medium text-amber-700 hover:underline">Baixa</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="px-6 py-12 text-center text-sm text-slate-400">Nenhum EPI cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
