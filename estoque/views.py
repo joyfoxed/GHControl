@@ -165,21 +165,60 @@ def detalhe_item(request, pk):
 
 
 @login_required
-def busca_codigo_barras(request):
-    """Busca rápida por código de barras — simula leitura de bipador/QR."""
-    codigo = request.GET.get('codigo', '').strip()
+def busca_estoque(request):
+    """
+    Busca avançada de frascos por código de barras (exato), nome ou CAS (parcial).
+    Compatível com o parâmetro legado `codigo` (assume filtro código de barras).
+    """
+    termo = (request.GET.get('q') or request.GET.get('codigo') or '').strip()
+    tipo = request.GET.get('tipo', 'codigo_barras').strip() or 'codigo_barras'
+    destino_padrao = reverse('estoque:lista_estoque')
 
-    if not codigo:
-        messages.error(request, 'Digite ou bip um código de barras.')
-        return redirect(request.META.get('HTTP_REFERER', reverse('estoque:dashboard')))
+    if not termo:
+        messages.error(request, 'Digite um termo para buscar no estoque.')
+        return redirect(request.META.get('HTTP_REFERER', destino_padrao))
 
-    item = ItemEstoque.objects.filter(codigo_barras=codigo).first()
+    qs = ItemEstoque.objects.select_related('reagente', 'armario')
 
-    if item:
-        return redirect('estoque:detalhe_item', pk=item.pk)
+    rotulos = {
+        'nome': 'Nome do Reagente',
+        'cas': 'CAS',
+        'codigo_barras': 'Código de Barras',
+    }
 
-    messages.error(request, 'Código de barras não encontrado.')
-    return redirect(request.META.get('HTTP_REFERER', reverse('estoque:dashboard')))
+    if tipo == 'nome':
+        resultados = qs.filter(reagente__nome__icontains=termo).order_by('reagente__nome')
+    elif tipo == 'cas':
+        resultados = qs.filter(reagente__cas__icontains=termo).order_by('reagente__nome')
+    else:
+        tipo = 'codigo_barras'
+        # Default: código de barras — busca exata
+        resultados = qs.filter(codigo_barras=termo)
+
+    rotulo = rotulos.get(tipo, 'Código de Barras')
+    total = resultados.count()
+
+    if total == 0:
+        messages.error(request, f'Nenhum frasco encontrado para {rotulo}: "{termo}".')
+        return redirect(request.META.get('HTTP_REFERER', destino_padrao))
+
+    if total == 1:
+        return redirect('estoque:detalhe_item', pk=resultados.first().pk)
+
+    # Múltiplos resultados (nome/CAS): mostra na lista filtrada
+    return render(
+        request,
+        'estoque/lista_estoque.html',
+        {
+            'itens': resultados.prefetch_related('reagente__classificacoes_ghs'),
+            'busca_termo': termo,
+            'busca_tipo': rotulo,
+        },
+    )
+
+
+# Alias de compatibilidade com rotas/links antigos
+busca_codigo_barras = busca_estoque
 
 
 @login_required

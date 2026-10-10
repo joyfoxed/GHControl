@@ -16,6 +16,7 @@ urlpatterns = [
     path('estoque/', views.lista_estoque, name='lista_estoque'),
     path('estoque/relatorio/', views.relatorio_inventario, name='relatorio_inventario'),
     path('estoque/<int:pk>/', views.detalhe_item, name='detalhe_item'),
-    path('busca/', views.busca_codigo_barras, name='busca_codigo_barras'),
+    path('busca/', views.busca_estoque, name='busca_estoque'),
+    path('busca/', views.busca_estoque, name='busca_codigo_barras'),  # alias legado
     path('movimentacao/', views.registrar_movimentacao, name='registrar_movimentacao'),
 ]

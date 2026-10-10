@@ -10,8 +10,14 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from .decorators import requer_staff
-from .forms import BaixaEPIForm, EPCForm, EPIForm, InspecaoEPCForm
-from .models import EPC, EPI
+from .forms import (
+    BaixaEPIForm,
+    EPCForm,
+    EPIForm,
+    InspecaoEPCForm,
+    MovimentacaoEquipamentoForm,
+)
+from .models import EPC, EPI, HistoricoMovimentacaoEquipamento
 
 
 @login_required
@@ -45,6 +51,11 @@ def dashboard(request):
         'lista_epcs_proximos': epcs_proximos[:8],
         'ultimos_epis': EPI.objects.order_by('-atualizado_em')[:5],
         'ultimos_epcs': EPC.objects.order_by('-atualizado_em')[:5],
+        'ultimas_movimentacoes': (
+            HistoricoMovimentacaoEquipamento.objects.select_related(
+                'epi', 'epc', 'usuario'
+            )[:5]
+        ),
     }
     return render(request, 'equipamentos/dashboard_equipamentos.html', contexto)
 
@@ -58,7 +69,12 @@ def lista_epis(request):
 @login_required
 def detalhe_epi(request, pk):
     item = get_object_or_404(EPI, pk=pk)
-    return render(request, 'equipamentos/detalhe_epi.html', {'item': item})
+    historico = item.movimentacoes.select_related('usuario')[:10]
+    return render(
+        request,
+        'equipamentos/detalhe_epi.html',
+        {'item': item, 'historico': historico},
+    )
 
 
 @login_required
@@ -105,8 +121,17 @@ def dar_baixa_epi(request, pk):
     if request.method == 'POST':
         form = BaixaEPIForm(request.POST)
         if form.is_valid():
+            quantidade = form.cleaned_data['quantidade']
             try:
-                item.dar_baixa(form.cleaned_data['quantidade'])
+                item.dar_baixa(quantidade)
+                HistoricoMovimentacaoEquipamento.objects.create(
+                    tipo_equipamento=HistoricoMovimentacaoEquipamento.TipoEquipamento.EPI,
+                    epi=item,
+                    tipo=HistoricoMovimentacaoEquipamento.TipoOperacao.BAIXA,
+                    quantidade=quantidade,
+                    usuario=request.user,
+                    justificativa=form.cleaned_data.get('justificativa', ''),
+                )
             except ValidationError as exc:
                 messages.error(
                     request,
@@ -115,8 +140,8 @@ def dar_baixa_epi(request, pk):
             else:
                 messages.success(
                     request,
-                    f'Baixa de {form.cleaned_data["quantidade"]} unidade(s) '
-                    f'registrada. Estoque atual: {item.estoque_disponivel}.',
+                    f'Baixa de {quantidade} unidade(s) registrada. '
+                    f'Estoque atual: {item.estoque_disponivel}.',
                 )
                 return redirect('equipamentos:detalhe_epi', pk=item.pk)
     else:
@@ -137,7 +162,12 @@ def lista_epcs(request):
 @login_required
 def detalhe_epc(request, pk):
     item = get_object_or_404(EPC, pk=pk)
-    return render(request, 'equipamentos/detalhe_epc.html', {'item': item})
+    historico = item.movimentacoes.select_related('usuario')[:10]
+    return render(
+        request,
+        'equipamentos/detalhe_epc.html',
+        {'item': item, 'historico': historico},
+    )
 
 
 @login_required
@@ -184,9 +214,17 @@ def registrar_inspecao_epc(request, pk):
     if request.method == 'POST':
         form = InspecaoEPCForm(request.POST)
         if form.is_valid():
+            obs = form.cleaned_data.get('observacoes', '')
             item.registrar_inspecao(
                 data_inspecao=form.cleaned_data['data_inspecao'],
-                observacoes=form.cleaned_data.get('observacoes', ''),
+                observacoes=obs,
+            )
+            HistoricoMovimentacaoEquipamento.objects.create(
+                tipo_equipamento=HistoricoMovimentacaoEquipamento.TipoEquipamento.EPC,
+                epc=item,
+                tipo=HistoricoMovimentacaoEquipamento.TipoOperacao.INSPECAO,
+                usuario=request.user,
+                justificativa=obs,
             )
             messages.success(
                 request,
@@ -200,4 +238,68 @@ def registrar_inspecao_epc(request, pk):
         request,
         'equipamentos/inspecao_epc.html',
         {'form': form, 'item': item},
+    )
+
+
+@login_required
+@requer_staff
+def movimentacao_equipamento(request):
+    """Tela unificada de movimentação de EPI/EPC (somente staff)."""
+    if request.method == 'POST':
+        form = MovimentacaoEquipamentoForm(request.POST)
+        if form.is_valid():
+            tipo_eq = form.cleaned_data['tipo_equipamento']
+            tipo = form.cleaned_data['tipo']
+            justificativa = form.cleaned_data.get('justificativa', '')
+
+            try:
+                if tipo_eq == 'EPI':
+                    epi = form.cleaned_data['epi']
+                    quantidade = form.cleaned_data['quantidade']
+                    epi.aplicar_ajuste_estoque(quantidade, tipo)
+                    HistoricoMovimentacaoEquipamento.objects.create(
+                        tipo_equipamento=HistoricoMovimentacaoEquipamento.TipoEquipamento.EPI,
+                        epi=epi,
+                        tipo=tipo,
+                        quantidade=quantidade,
+                        usuario=request.user,
+                        justificativa=justificativa,
+                    )
+                    messages.success(
+                        request,
+                        f'Movimentação de {tipo} registrada para {epi.nome}. '
+                        f'Estoque atual: {epi.estoque_disponivel}.',
+                    )
+                else:
+                    epc = form.cleaned_data['epc']
+                    epc.registrar_inspecao(observacoes=justificativa)
+                    HistoricoMovimentacaoEquipamento.objects.create(
+                        tipo_equipamento=HistoricoMovimentacaoEquipamento.TipoEquipamento.EPC,
+                        epc=epc,
+                        tipo=HistoricoMovimentacaoEquipamento.TipoOperacao.INSPECAO,
+                        usuario=request.user,
+                        justificativa=justificativa,
+                    )
+                    messages.success(
+                        request,
+                        f'Inspeção registrada para {epc.nome}. '
+                        f'Próxima: {epc.data_proxima_inspecao:%d/%m/%Y}.',
+                    )
+            except ValidationError as exc:
+                messages.error(
+                    request,
+                    exc.messages[0] if hasattr(exc, 'messages') else str(exc),
+                )
+            else:
+                return redirect('equipamentos:movimentacao')
+    else:
+        form = MovimentacaoEquipamentoForm()
+
+    ultimas = HistoricoMovimentacaoEquipamento.objects.select_related(
+        'epi', 'epc', 'usuario'
+    )[:10]
+    return render(
+        request,
+        'equipamentos/movimentacao.html',
+        {'form': form, 'ultimas': ultimas},
     )

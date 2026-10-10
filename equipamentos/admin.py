@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 
-from .models import EPC, EPI
+from .models import EPC, EPI, HistoricoMovimentacaoEquipamento
 
 
 @admin.register(EPI)
@@ -17,7 +17,7 @@ class EPIAdmin(admin.ModelAdmin):
         'status',
     )
     list_filter = ('status', 'risco_controla')
-    search_fields = ('nome', 'ca', 'fabricante', 'modelo')
+    search_fields = ('nome', 'ca', 'fabricante')
     date_hierarchy = 'validade'
 
 
@@ -35,3 +35,21 @@ class EPCAdmin(admin.ModelAdmin):
     search_fields = ('nome', 'local', 'tipo_risco')
     readonly_fields = ('data_proxima_inspecao',)
     date_hierarchy = 'data_proxima_inspecao'
+
+
+@admin.register(HistoricoMovimentacaoEquipamento)
+class HistoricoMovimentacaoEquipamentoAdmin(admin.ModelAdmin):
+    list_display = (
+        'data_hora',
+        'tipo_equipamento',
+        'tipo',
+        'epi',
+        'epc',
+        'quantidade',
+        'usuario',
+    )
+    list_filter = ('tipo_equipamento', 'tipo', 'data_hora')
+    search_fields = ('epi__nome', 'epc__nome', 'justificativa', 'usuario__username')
+    readonly_fields = ('data_hora',)
+    autocomplete_fields = ('epi', 'epc', 'usuario')
+    date_hierarchy = 'data_hora'

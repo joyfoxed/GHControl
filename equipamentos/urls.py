@@ -8,6 +8,7 @@ app_name = 'equipamentos'
 
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
+    path('movimentacao/', views.movimentacao_equipamento, name='movimentacao'),
     # EPI
     path('epi/', views.lista_epis, name='lista_epis'),
     path('epi/novo/', views.cadastrar_epi, name='cadastrar_epi'),

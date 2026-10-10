@@ -6,6 +6,7 @@ Sem ImageField/FileField: ambiente Serverless (Vercel) não persiste uploads loc
 
 from datetime import timedelta
 
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
@@ -23,7 +24,7 @@ class EPI(models.Model):
     nome = models.CharField(
         max_length=200,
         verbose_name='Nome do EPI',
-        help_text='Descrição do equipamento de proteção individual.',
+        help_text='Inclua o modelo no nome quando necessário (ex.: Luva Nitrílica M).',
     )
     ca = models.CharField(
         max_length=50,
@@ -35,7 +36,6 @@ class EPI(models.Model):
         help_text='Validade do CA ou do lote do EPI.',
     )
     fabricante = models.CharField(max_length=200, verbose_name='Fabricante')
-    modelo = models.CharField(max_length=100, verbose_name='Modelo')
     estoque_disponivel = models.PositiveIntegerField(
         default=0,
         verbose_name='Estoque disponível',
@@ -81,23 +81,39 @@ class EPI(models.Model):
     def validade_vencida(self):
         return self.validade < timezone.localdate()
 
-    def clean(self):
-        super().clean()
-        if self.validade and self.validade < timezone.localdate():
-            if self.status == self.Status.ATIVO:
-                self.status = self.Status.VENCIDO
-
-    def dar_baixa(self, quantidade):
-        """Reduz o estoque disponível. Lança ValidationError se insuficiente."""
+    def aplicar_ajuste_estoque(self, quantidade, tipo):
+        """
+        Aplica entrada (+) ou saída/baixa (-) no estoque do EPI.
+        `quantidade` deve ser positiva; o sinal é definido pelo tipo.
+        """
         quantidade = int(quantidade)
         if quantidade <= 0:
             raise ValidationError('A quantidade deve ser maior que zero.')
-        if quantidade > self.estoque_disponivel:
-            raise ValidationError(
-                f'Estoque insuficiente. Disponível: {self.estoque_disponivel} unidade(s).'
-            )
-        self.estoque_disponivel -= quantidade
+
+        tipos_saida = {
+            HistoricoMovimentacaoEquipamento.TipoOperacao.SAIDA,
+            HistoricoMovimentacaoEquipamento.TipoOperacao.BAIXA,
+        }
+
+        if tipo in tipos_saida:
+            if quantidade > self.estoque_disponivel:
+                raise ValidationError(
+                    f'Estoque insuficiente. Disponível: {self.estoque_disponivel} unidade(s).'
+                )
+            self.estoque_disponivel -= quantidade
+        elif tipo == HistoricoMovimentacaoEquipamento.TipoOperacao.ENTRADA:
+            self.estoque_disponivel += quantidade
+        else:
+            raise ValidationError('Tipo de operação inválido para ajuste de estoque de EPI.')
+
         self.save(update_fields=['estoque_disponivel', 'atualizado_em'])
+
+    def dar_baixa(self, quantidade):
+        """Compatibilidade: reduz estoque via operação de baixa."""
+        self.aplicar_ajuste_estoque(
+            quantidade,
+            HistoricoMovimentacaoEquipamento.TipoOperacao.BAIXA,
+        )
 
 
 class EPC(models.Model):
@@ -195,3 +211,92 @@ class EPC(models.Model):
         if self.status == self.Status.MANUTENCAO:
             self.status = self.Status.ATIVO
         self.save()
+
+
+class HistoricoMovimentacaoEquipamento(models.Model):
+    """Auditoria de entradas, saídas, baixas e inspeções de EPI/EPC."""
+
+    class TipoEquipamento(models.TextChoices):
+        EPI = 'EPI', 'EPI'
+        EPC = 'EPC', 'EPC'
+
+    class TipoOperacao(models.TextChoices):
+        ENTRADA = 'Entrada', 'Entrada'
+        SAIDA = 'Saída', 'Saída'
+        BAIXA = 'Baixa', 'Baixa'
+        INSPECAO = 'Inspeção', 'Inspeção'
+
+    tipo_equipamento = models.CharField(
+        max_length=3,
+        choices=TipoEquipamento.choices,
+        verbose_name='Tipo de equipamento',
+    )
+    epi = models.ForeignKey(
+        EPI,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='movimentacoes',
+        verbose_name='EPI',
+    )
+    epc = models.ForeignKey(
+        EPC,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='movimentacoes',
+        verbose_name='EPC',
+    )
+    tipo = models.CharField(
+        max_length=20,
+        choices=TipoOperacao.choices,
+        verbose_name='Tipo de operação',
+    )
+    quantidade = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name='Quantidade',
+        help_text='Obrigatória para operações de EPI (entrada/saída/baixa).',
+    )
+    data_hora = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Data e hora',
+    )
+    usuario = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name='movimentacoes_equipamentos',
+        verbose_name='Usuário responsável',
+    )
+    justificativa = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name='Justificativa / Observação',
+    )
+
+    class Meta:
+        verbose_name = 'Histórico de movimentação (EPI/EPC)'
+        verbose_name_plural = 'Históricos de movimentação (EPI/EPC)'
+        ordering = ['-data_hora']
+
+    def __str__(self):
+        alvo = self.epi or self.epc
+        return f'{self.tipo} — {alvo} ({self.data_hora:%d/%m/%Y %H:%M})'
+
+    def clean(self):
+        super().clean()
+        if self.tipo_equipamento == self.TipoEquipamento.EPI and not self.epi_id:
+            raise ValidationError({'epi': 'Selecione o EPI da movimentação.'})
+        if self.tipo_equipamento == self.TipoEquipamento.EPC and not self.epc_id:
+            raise ValidationError({'epc': 'Selecione o EPC da movimentação.'})
+        if self.tipo_equipamento == self.TipoEquipamento.EPI and self.tipo == self.TipoOperacao.INSPECAO:
+            raise ValidationError({'tipo': 'Inspeção aplica-se apenas a EPCs.'})
+        if self.tipo_equipamento == self.TipoEquipamento.EPC and self.tipo != self.TipoOperacao.INSPECAO:
+            raise ValidationError({'tipo': 'Para EPC, use o tipo Inspeção.'})
+        if self.tipo_equipamento == self.TipoEquipamento.EPI and not self.quantidade:
+            raise ValidationError({'quantidade': 'Informe a quantidade para movimentações de EPI.'})
+
+    def save(self, *args, **kwargs):
+        """Persiste apenas o registro de auditoria (o estoque é ajustado nas views)."""
+        self.full_clean()
+        super().save(*args, **kwargs)

@@ -8,9 +8,11 @@
     {% if user.is_staff %}
     <div class="flex gap-2">
         <a href="{% url 'equipamentos:cadastrar_epi' %}"
-           class="rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white hover:bg-brand-700">+ EPI</a>
+           class="rounded-lg bg-blue-800 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-900">+ EPI</a>
         <a href="{% url 'equipamentos:cadastrar_epc' %}"
            class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">+ EPC</a>
+        <a href="{% url 'equipamentos:movimentacao' %}"
+           class="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-800 hover:bg-blue-100">Movimentação</a>
     </div>
     {% endif %}
 </div>

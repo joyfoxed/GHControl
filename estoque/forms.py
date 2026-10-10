@@ -6,8 +6,8 @@ from .models import HistoricoMovimentacao, ItemEstoque, normalizar_unidade
 
 INPUT_CLASS = (
     'w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 '
-    'text-slate-800 shadow-sm focus:border-emerald-500 focus:outline-none '
-    'focus:ring-2 focus:ring-emerald-200'
+    'text-slate-800 shadow-sm focus:border-blue-500 focus:outline-none '
+    'focus:ring-2 focus:ring-blue-200'
 )
 
 
