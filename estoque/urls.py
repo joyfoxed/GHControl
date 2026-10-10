@@ -19,4 +19,5 @@ urlpatterns = [
     path('busca/', views.busca_estoque, name='busca_estoque'),
     path('busca/', views.busca_estoque, name='busca_codigo_barras'),  # alias legado
     path('movimentacao/', views.registrar_movimentacao, name='registrar_movimentacao'),
+    path('admin/logs/', views.logs_auditoria, name='logs_auditoria'),
 ]

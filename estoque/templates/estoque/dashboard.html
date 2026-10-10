@@ -170,6 +170,25 @@
     const armariosData = JSON.parse(document.getElementById('chart-armarios-data').textContent);
     const validadeStatus = JSON.parse(document.getElementById('chart-validade-status').textContent);
 
+    // Paleta fria (azul / índigo / ciano / teal) — identidade visual GHControl
+    const paletaArmarios = [
+        { bg: 'rgba(30, 58, 138, 0.85)', border: '#1e3a8a' },   // blue-900
+        { bg: 'rgba(30, 64, 175, 0.85)', border: '#1e40af' },   // blue-800
+        { bg: 'rgba(37, 99, 235, 0.85)', border: '#2563eb' },   // blue-600
+        { bg: 'rgba(59, 130, 246, 0.85)', border: '#3b82f6' },  // blue-500
+        { bg: 'rgba(6, 182, 212, 0.85)', border: '#06b6d4' },   // cyan-500
+        { bg: 'rgba(8, 145, 178, 0.85)', border: '#0891b2' },   // cyan-600
+        { bg: 'rgba(79, 70, 229, 0.85)', border: '#4f46e5' },   // indigo-600
+        { bg: 'rgba(99, 102, 241, 0.85)', border: '#6366f1' },  // indigo-500
+        { bg: 'rgba(13, 148, 136, 0.85)', border: '#0d9488' },  // teal-600
+        { bg: 'rgba(20, 184, 166, 0.85)', border: '#14b8a6' },  // teal-500
+        { bg: 'rgba(14, 165, 233, 0.85)', border: '#0ea5e9' },  // sky-500
+        { bg: 'rgba(2, 132, 199, 0.85)', border: '#0284c7' },   // sky-600
+    ];
+
+    const coresBg = armariosLabels.map((_, i) => paletaArmarios[i % paletaArmarios.length].bg);
+    const coresBorder = armariosLabels.map((_, i) => paletaArmarios[i % paletaArmarios.length].border);
+
     new Chart(document.getElementById('chartArmarios'), {
         type: 'bar',
         data: {
@@ -177,8 +196,8 @@
             datasets: [{
                 label: 'Frascos',
                 data: armariosData,
-                backgroundColor: 'rgba(5, 150, 105, 0.75)',
-                borderColor: 'rgba(4, 120, 87, 1)',
+                backgroundColor: coresBg,
+                borderColor: coresBorder,
                 borderWidth: 1,
                 borderRadius: 6,
             }],

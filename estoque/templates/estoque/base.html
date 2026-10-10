@@ -155,10 +155,19 @@
                 {% if user.is_staff %}
                 <div>
                     <p class="nav-section-title mb-2 px-3 text-xs font-bold uppercase tracking-wider text-blue-100/50">⚙️ Administração</p>
-                    <a href="/admin/"
-                       class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-blue-50/90 transition hover:bg-blue-700/60">
-                        <span>⚙️</span><span class="nav-label">Painel Administrativo</span>
-                    </a>
+                    <div class="space-y-1">
+                        <a href="/admin/"
+                           class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-blue-50/90 transition hover:bg-blue-700/60">
+                            <span>⚙️</span><span class="nav-label">Painel Administrativo</span>
+                        </a>
+                        {% if user.is_superuser %}
+                        <a href="{% url 'estoque:logs_auditoria' %}"
+                           class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition
+                                  {% if request.resolver_match.url_name == 'logs_auditoria' %}bg-blue-700 text-white{% else %}text-blue-50/90 hover:bg-blue-700/60{% endif %}">
+                            <span>📜</span><span class="nav-label">Logs de Auditoria</span>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
                 {% endif %}
             </nav>

@@ -3,16 +3,18 @@
 from datetime import timedelta
 
 from django.contrib import messages
+from django.contrib.admin.models import ADDITION, CHANGE, DELETION, LogEntry
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
 
-from .decorators import requer_permissao_movimentacao
+from .decorators import requer_permissao_movimentacao, requer_superuser
 from .forms import MovimentacaoForm
 from .models import HistoricoMovimentacao, ItemEstoque, Reagente
 
@@ -260,4 +262,66 @@ def registrar_movimentacao(request):
         request,
         'estoque/registrar_movimentacao.html',
         {'form': form},
+    )
+
+
+@login_required
+@requer_superuser
+def logs_auditoria(request):
+    """
+    Visualizador de logs do sistema (django.contrib.admin.models.LogEntry).
+    Restrito a superusuários.
+    """
+    qs = (
+        LogEntry.objects.select_related('user', 'content_type')
+        .order_by('-action_time')
+    )
+
+    acao_filtro = request.GET.get('acao', '').strip()
+    if acao_filtro == 'add':
+        qs = qs.filter(action_flag=ADDITION)
+    elif acao_filtro == 'change':
+        qs = qs.filter(action_flag=CHANGE)
+    elif acao_filtro == 'delete':
+        qs = qs.filter(action_flag=DELETION)
+
+    paginator = Paginator(qs, 40)
+    page_obj = paginator.get_page(request.GET.get('page'))
+
+    logs = []
+    for entry in page_obj:
+        if entry.action_flag == ADDITION:
+            acao = 'Adição'
+            acao_cor = 'blue'
+        elif entry.action_flag == CHANGE:
+            acao = 'Alteração'
+            acao_cor = 'amber'
+        elif entry.action_flag == DELETION:
+            acao = 'Exclusão'
+            acao_cor = 'red'
+        else:
+            acao = 'Ação'
+            acao_cor = 'slate'
+
+        modelo = (
+            entry.content_type.name.title()
+            if entry.content_type
+            else '—'
+        )
+        logs.append({
+            'entry': entry,
+            'acao': acao,
+            'acao_cor': acao_cor,
+            'modelo': modelo,
+        })
+
+    return render(
+        request,
+        'estoque/logs_auditoria.html',
+        {
+            'logs': logs,
+            'page_obj': page_obj,
+            'acao_filtro': acao_filtro,
+            'total_logs': paginator.count,
+        },
     )
