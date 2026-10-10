@@ -122,9 +122,32 @@
 
                 <div>
                     <p class="nav-section-title mb-2 px-3 text-xs font-bold uppercase tracking-wider text-blue-100/50">⚗️ Vidrarias</p>
+                    <div class="space-y-1">
+                        <a href="{% url 'vidrarias:dashboard' %}"
+                           class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition
+                                  {% if request.resolver_match.app_name == 'vidrarias' and request.resolver_match.url_name == 'dashboard' %}bg-blue-700 text-white{% else %}text-blue-50/90 hover:bg-blue-700/60{% endif %}">
+                            <span>⚗️</span><span class="nav-label">Dashboard</span>
+                        </a>
+                        <a href="{% url 'vidrarias:lista' %}"
+                           class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition
+                                  {% if request.resolver_match.app_name == 'vidrarias' and request.resolver_match.url_name != 'dashboard' and request.resolver_match.url_name != 'movimentacao' %}bg-blue-700 text-white{% else %}text-blue-50/90 hover:bg-blue-700/60{% endif %}">
+                            <span>🫙</span><span class="nav-label">Lista</span>
+                        </a>
+                        {% if user.is_staff %}
+                        <a href="{% url 'vidrarias:movimentacao' %}"
+                           class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition
+                                  {% if request.resolver_match.app_name == 'vidrarias' and request.resolver_match.url_name == 'movimentacao' %}bg-blue-700 text-white{% else %}text-blue-50/90 hover:bg-blue-700/60{% endif %}">
+                            <span>📦</span><span class="nav-label">Movimentação</span>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div>
+                    <p class="nav-section-title mb-2 px-3 text-xs font-bold uppercase tracking-wider text-blue-100/50">🔬 Equipamentos</p>
                     <span class="flex cursor-not-allowed items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-blue-100/40"
                           title="Módulo em desenvolvimento">
-                        <span><span class="mr-2">⚗️</span><span class="nav-label">Dashboard</span></span>
+                        <span><span class="mr-2">🔬</span><span class="nav-label">Dashboard</span></span>
                         <span class="nav-label rounded-full bg-amber-500/20 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-200">Em breve</span>
                     </span>
                 </div>
@@ -202,7 +225,8 @@
                 <nav class="mt-3 flex gap-2 overflow-x-auto text-sm">
                     <a href="{% url 'estoque:dashboard' %}" class="whitespace-nowrap rounded-full bg-blue-50 px-3 py-1 text-blue-800">🧪 Reagentes</a>
                     <a href="{% url 'equipamentos:dashboard' %}" class="whitespace-nowrap rounded-full bg-blue-50 px-3 py-1 text-blue-800">🦺 EPI/EPC</a>
-                    <span class="whitespace-nowrap rounded-full bg-slate-100 px-3 py-1 text-slate-400">⚗️ Vidrarias</span>
+                    <a href="{% url 'vidrarias:dashboard' %}" class="whitespace-nowrap rounded-full bg-blue-50 px-3 py-1 text-blue-800">⚗️ Vidrarias</a>
+                    <span class="whitespace-nowrap rounded-full bg-slate-100 px-3 py-1 text-slate-400">🔬 Equipamentos</span>
                     {% if user.is_staff %}
                     <a href="/admin/" class="whitespace-nowrap rounded-full bg-slate-100 px-3 py-1 text-slate-600">⚙️ Admin</a>
                     {% endif %}

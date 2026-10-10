@@ -1,0 +1,77 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}{{ titulo }} — GHControl{% endblock %}
+
+{% block top_bar %}
+<p class="text-sm font-medium text-slate-500">Módulo Vidrarias</p>
+{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">{{ titulo }}</h2>
+    <p class="mt-1 text-sm text-slate-500">Calibração é obrigatória apenas para vidrarias volumétricas.</p>
+</div>
+
+<div class="mx-auto max-w-2xl overflow-visible rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+    <form method="post" class="relative z-10 space-y-5 overflow-visible" id="form-vidraria">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+            {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+
+        {% for field in form %}
+        <div class="relative {% if field.name == 'tipo' or field.name == 'calibracao' %}z-50{% else %}z-0{% endif %}"
+             {% if field.name == 'calibracao' %}id="wrap-calibracao"{% endif %}>
+            <label for="{{ field.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                {{ field.label }}
+                {% if field.field.required %}<span class="text-red-500">*</span>{% endif %}
+                {% if field.name == 'calibracao' %}<span class="text-xs font-normal text-slate-400">(volumétricas)</span>{% endif %}
+            </label>
+            {{ field }}
+            {% if field.help_text %}
+            <p class="mt-1 text-xs text-slate-500">{{ field.help_text }}</p>
+            {% endif %}
+            {% if field.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ field.errors.0 }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+            <button type="submit"
+                    class="inline-flex flex-1 items-center justify-center rounded-lg bg-blue-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-900">
+                Salvar
+            </button>
+            <a href="{% if item %}{% url 'vidrarias:detalhe' item.pk %}{% else %}{% url 'vidrarias:lista' %}{% endif %}"
+               class="inline-flex flex-1 items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+(function () {
+    const tipo = document.getElementById('id_tipo');
+    const wrap = document.getElementById('wrap-calibracao');
+    const input = document.getElementById('id_calibracao');
+    if (!tipo || !wrap) return;
+
+    function sync() {
+        const isVol = tipo.value === 'Volumétrica';
+        wrap.style.display = isVol ? '' : 'none';
+        if (input) {
+            input.required = isVol;
+            if (!isVol) input.value = '';
+        }
+    }
+
+    tipo.addEventListener('change', sync);
+    sync();
+})();
+</script>
+{% endblock %}

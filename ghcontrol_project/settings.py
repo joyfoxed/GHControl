@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'estoque',
     # Módulo EPI / EPC — equipamentos de proteção
     'equipamentos',
+    # Módulo Vidrarias — materiais de vidro do laboratório
+    'vidrarias',
 ]
 
 MIDDLEWARE = [

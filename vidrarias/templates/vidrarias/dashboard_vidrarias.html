@@ -1,0 +1,169 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Dashboard Vidrarias — GHControl{% endblock %}
+
+{% block top_bar %}
+<div class="flex items-center justify-between">
+    <p class="text-sm font-medium text-slate-500">Módulo Vidrarias — Materiais de vidro</p>
+    {% if request.user.is_staff %}
+    <div class="flex gap-2">
+        <a href="{% url 'vidrarias:cadastrar' %}"
+           class="rounded-lg bg-blue-800 px-3 py-2 text-sm font-semibold text-white hover:bg-blue-900">+ Vidraria</a>
+        <a href="{% url 'vidrarias:movimentacao' %}"
+           class="rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-800 hover:bg-blue-100">Movimentação</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">Dashboard Vidrarias</h2>
+    <p class="mt-1 text-slate-500">Controle de peças graduadas e volumétricas do laboratório</p>
+</div>
+
+<div class="mb-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p class="text-sm font-medium text-slate-500">Tipos cadastrados</p>
+        <p class="mt-2 text-3xl font-bold text-blue-800">{{ total_itens }}</p>
+    </div>
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p class="text-sm font-medium text-slate-500">Total de peças</p>
+        <p class="mt-2 text-3xl font-bold text-blue-900">{{ total_pecas }}</p>
+    </div>
+    <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 shadow-sm">
+        <p class="text-sm font-medium text-amber-700">Estoque baixo</p>
+        <p class="mt-2 text-3xl font-bold text-amber-800">{{ itens_estoque_baixo }}</p>
+    </div>
+    <div class="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm">
+        <p class="text-sm font-medium text-red-700">Saídas/Quebras recentes</p>
+        <p class="mt-2 text-3xl font-bold text-red-800">{{ quebras_recentes|length }}</p>
+    </div>
+</div>
+
+<div class="mb-8 grid gap-6 lg:grid-cols-2">
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-100 px-6 py-4">
+            <div>
+                <h3 class="text-lg font-semibold text-slate-900">Estoque baixo</h3>
+                <p class="text-sm text-slate-500">Abaixo ou no mínimo</p>
+            </div>
+            <a href="{% url 'vidrarias:lista' %}" class="text-sm font-medium text-blue-800 hover:underline">Ver todos</a>
+        </div>
+        <ul class="divide-y divide-slate-100">
+            {% for item in lista_estoque_baixo %}
+            <li class="flex items-center justify-between px-6 py-3 text-sm">
+                <a href="{% url 'vidrarias:detalhe' item.pk %}" class="font-medium text-slate-900 hover:text-blue-800">
+                    {{ item.nome }} <span class="text-slate-400">({{ item.volume }})</span>
+                </a>
+                <span class="font-semibold text-amber-700">{{ item.quantidade_estoque }} / mín. {{ item.estoque_minimo }}</span>
+            </li>
+            {% empty %}
+            <li class="px-6 py-8 text-center text-sm text-slate-400">Nenhuma vidraria com estoque baixo.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-6 py-4">
+            <h3 class="text-lg font-semibold text-slate-900">Movimentações recentes</h3>
+            <p class="text-sm text-slate-500">Entradas e saídas/quebras</p>
+        </div>
+        <ul class="divide-y divide-slate-100">
+            {% for mov in ultimas_movimentacoes %}
+            <li class="px-6 py-3 text-sm">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="inline-flex rounded-full px-2 py-0.5 text-xs font-medium
+                        {% if mov.tipo == 'Entrada' %}bg-blue-100 text-blue-800{% else %}bg-red-100 text-red-800{% endif %}">
+                        {{ mov.tipo }}
+                    </span>
+                    <span class="text-xs text-slate-500">{{ mov.data_hora|date:"d/m/Y H:i" }}</span>
+                </div>
+                <p class="mt-1 text-slate-700">{{ mov.vidraria.nome }} — {{ mov.quantidade }} un.</p>
+                <p class="text-xs text-slate-400">por {{ mov.usuario.username }}</p>
+            </li>
+            {% empty %}
+            <li class="px-6 py-8 text-center text-sm text-slate-400">Nenhuma movimentação registrada.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- Graduadas -->
+<div class="mb-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div class="border-b border-slate-100 bg-gradient-to-r from-blue-900 to-blue-700 px-6 py-4">
+        <h3 class="text-lg font-semibold text-white">⚗️ Graduadas</h3>
+        <p class="text-sm text-blue-100/80">Béqueres, provetas, cilindros graduados</p>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-100 text-sm">
+            <thead class="bg-slate-50">
+                <tr>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Nome</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Volume</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Estoque</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                {% for item in graduadas %}
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-medium">
+                        <a href="{% url 'vidrarias:detalhe' item.pk %}" class="text-blue-800 hover:underline">{{ item.nome }}</a>
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">{{ item.volume }}</td>
+                    <td class="px-4 py-3 {% if item.estoque_baixo %}font-semibold text-amber-700{% else %}text-slate-700{% endif %}">
+                        {{ item.quantidade_estoque }}
+                    </td>
+                    <td class="px-4 py-3">
+                        <a href="{% url 'vidrarias:detalhe' item.pk %}" class="text-blue-800 hover:underline">Ver</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4" class="px-4 py-8 text-center text-slate-400">Nenhuma vidraria graduada.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Volumétricas -->
+<div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div class="border-b border-slate-100 bg-gradient-to-r from-blue-800 to-blue-600 px-6 py-4">
+        <h3 class="text-lg font-semibold text-white">📐 Volumétricas</h3>
+        <p class="text-sm text-blue-100/80">Pipetas, balões e materiais calibrados</p>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-100 text-sm">
+            <thead class="bg-slate-50">
+                <tr>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Nome</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Volume</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Calibração</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Estoque</th>
+                    <th class="px-4 py-2 text-left text-xs font-semibold uppercase text-slate-500">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                {% for item in volumetricas %}
+                <tr class="hover:bg-slate-50">
+                    <td class="px-4 py-3 font-medium">
+                        <a href="{% url 'vidrarias:detalhe' item.pk %}" class="text-blue-800 hover:underline">{{ item.nome }}</a>
+                    </td>
+                    <td class="px-4 py-3 text-slate-600">{{ item.volume }}</td>
+                    <td class="px-4 py-3 text-slate-600">{{ item.calibracao|default:"—" }}</td>
+                    <td class="px-4 py-3 {% if item.estoque_baixo %}font-semibold text-amber-700{% else %}text-slate-700{% endif %}">
+                        {{ item.quantidade_estoque }}
+                    </td>
+                    <td class="px-4 py-3">
+                        <a href="{% url 'vidrarias:detalhe' item.pk %}" class="text-blue-800 hover:underline">Ver</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="px-4 py-8 text-center text-slate-400">Nenhuma vidraria volumétrica.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

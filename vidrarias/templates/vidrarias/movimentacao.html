@@ -1,0 +1,67 @@
+{% extends 'estoque/base.html' %}
+
+{% block title %}Movimentação Vidrarias — GHControl{% endblock %}
+
+{% block top_bar %}
+<p class="text-sm font-medium text-slate-500">Módulo Vidrarias — Movimentação</p>
+{% endblock %}
+
+{% block content %}
+<div class="mb-8">
+    <h2 class="text-2xl font-bold text-slate-900">Movimentação de Vidrarias</h2>
+    <p class="mt-1 text-slate-500">Registre entradas ou saídas/quebras (somente técnicos)</p>
+</div>
+
+<div class="grid gap-6 lg:grid-cols-2">
+    <div class="overflow-visible rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+        <form method="post" class="relative z-10 space-y-5 overflow-visible">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            {% for field in form %}
+            <div class="relative z-20">
+                <label for="{{ field.id_for_label }}" class="mb-2 block text-sm font-medium text-slate-700">
+                    {{ field.label }}
+                </label>
+                {{ field }}
+                {% if field.errors %}
+                <p class="mt-1 text-sm text-red-600">{{ field.errors.0 }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit"
+                    class="w-full rounded-lg bg-blue-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-900">
+                Registrar movimentação
+            </button>
+        </form>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div class="border-b border-slate-100 px-6 py-4">
+            <h3 class="text-lg font-semibold text-slate-900">Últimas movimentações</h3>
+        </div>
+        <ul class="divide-y divide-slate-100">
+            {% for mov in ultimas %}
+            <li class="px-6 py-3 text-sm">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="font-medium text-slate-900">{{ mov.tipo }}</span>
+                    <span class="text-xs text-slate-500">{{ mov.data_hora|date:"d/m/Y H:i" }}</span>
+                </div>
+                <p class="text-slate-600">{{ mov.vidraria.nome }} — {{ mov.quantidade }} un.</p>
+                <p class="text-xs text-slate-400">por {{ mov.usuario.username }}</p>
+                {% if mov.observacao %}
+                <p class="mt-1 text-xs text-slate-500">{{ mov.observacao }}</p>
+                {% endif %}
+            </li>
+            {% empty %}
+            <li class="px-6 py-10 text-center text-sm text-slate-400">Nenhuma movimentação registrada.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
