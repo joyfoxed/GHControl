@@ -215,6 +215,7 @@ def busca_estoque(request):
             'itens': resultados.prefetch_related('reagente__classificacoes_ghs'),
             'busca_termo': termo,
             'busca_tipo': rotulo,
+            'busca_tipo_key': tipo,
         },
     )
 
