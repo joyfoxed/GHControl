@@ -1,4 +1,4 @@
-# CLAUDE.md: Constituição do Projeto GHControl
+# Cursor.md: Constituição do Projeto GHControl
 
 ## 0. CONFIRMAÇÃO OBRIGATÓRIA
 
